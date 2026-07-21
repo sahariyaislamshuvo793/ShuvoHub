@@ -1,717 +1,630 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShuvoHub</title>
+
+<title>Sahariya Islam Shuvo</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
 
-.card{
-    background:#fff;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    width:320px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
-
-h1{
-    color:#2563eb;
-}
-
-p{
-    color:#555;
-}
-
-a{
-    display:inline-block;
-    margin:10px;
-    padding:10px 20px;
-    background:#2563eb;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-}
-</style>
-
-</head>
-<body>
-
-<div class="card">
-    <h1>👋 Welcome to ShuvoHub</h1>
-
-    <p><strong>Sahariya Islam Shuvo</strong></p>
-
-    <p>📞 01791996607</p>
-
-    <p>📧 Sahariyaislamshuvo469@gmail.com</p>
-
-    <p>📍 Katlapur, Savar, Dhaka</p>
-
-    <a href="https://www.facebook.com/share/1CvmzEHwo5/" target="_blank">Facebook</a>
-
-    <a href="https://www.instagram.com/sahariyashuvo_?igsh=MWRoNjNhdnlhOTg" target="_blank">Instagram</a>
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShuvoHub | Professional Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+font-family:'Segoe UI',sans-serif;
 }
+
 
 body{
-background:#0f172a;
-color:#fff;
-}
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.5);
-backdrop-filter:blur(10px);
-z-index:999;
-}
-
-.logo{
-font-size:30px;
-font-weight:700;
-color:#38bdf8;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin-left:25px;
-transition:.3s;
-}
-
-nav a:hover{
-color:#38bdf8;
-}
-
-.hero{
 min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:120px 8%;
+background:#050816;
+color:white;
+overflow-x:hidden;
 }
 
-.hero-text{
-max-width:600px;
+
+/* 3D Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+width:500px;
+height:500px;
+background:#2563eb;
+filter:blur(120px);
+top:-100px;
+left:-100px;
+z-index:-1;
+
 }
 
-.hero-text h1{
-font-size:60px;
+
+body::after{
+
+content:"";
+
+position:fixed;
+width:400px;
+height:400px;
+background:#9333ea;
+filter:blur(120px);
+bottom:-100px;
+right:-100px;
+z-index:-1;
+
 }
 
-.hero-text h2{
-font-size:30px;
-color:#38bdf8;
-margin:15px 0;
+
+
+
+.container{
+
+width:90%;
+max-width:900px;
+margin:auto;
+padding:50px 0;
+
 }
 
-.hero-text p{
-font-size:18px;
-line-height:30px;
-color:#ddd;
-}
 
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 40px;
-background:#38bdf8;
-color:#fff;
-text-decoration:none;
-border-radius:40px;
-transition:.3s;
-}
 
-.btn:hover{
-transform:scale(1.08);
-}
-
-.hero img{
-width:380px;
-height:380px;
-border-radius:50%;
-object-fit:cover;
-border:8px solid #38bdf8;
-box-shadow:0 0 40px #38bdf8;
-}
-
-section{
-padding:100px 8%;
-}
-
-.title{
-text-align:center;
-font-size:40px;
-margin-bottom:60px;
-color:#38bdf8;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
 
 .card{
-background:#1e293b;
-padding:35px;
-border-radius:20px;
-transition:.4s;
+
+background:rgba(255,255,255,0.12);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,0.2);
+
+border-radius:30px;
+
+padding:40px;
+
+text-align:center;
+
+box-shadow:
+0 25px 50px rgba(0,0,0,.5);
+
+transform-style:preserve-3d;
+
+transition:.5s;
+
 }
+
+
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #38bdf8;
+
+transform:
+rotateY(8deg)
+rotateX(5deg)
+translateY(-10px);
+
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
 
-.gallery img{
-width:100%;
-height:250px;
+
+
+/* Picture */
+
+.profile img{
+
+width:200px;
+height:200px;
+
+border-radius:50%;
+
 object-fit:cover;
-border-radius:15px;
-transition:.4s;
+
+border:5px solid white;
+
+box-shadow:
+0 0 30px #2563eb;
+
+transition:.5s;
+
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+
+
+.profile img:hover{
+
+transform:scale(1.1) rotate(5deg);
+
 }
 
-.contact{
-text-align:center;
+
+
+
+h1{
+
+font-size:45px;
+
+margin:20px 0;
+
+background:linear-gradient(90deg,#fff,#60a5fa);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
 }
 
-.contact a{
+
+
+p{
+
+font-size:18px;
+
+line-height:2;
+
+}
+
+
+
+
+
+.buttons{
+
+margin-top:30px;
+
+}
+
+
+
+
+.btn{
+
 display:inline-block;
+
+padding:14px 35px;
+
 margin:10px;
-padding:15px 30px;
-background:#38bdf8;
-color:#fff;
+
+border-radius:50px;
+
+background:linear-gradient(45deg,#2563eb,#9333ea);
+
+color:white;
+
 text-decoration:none;
-border-radius:30px;
+
+font-weight:bold;
+
+box-shadow:0 10px 25px #000;
+
+transition:.4s;
+
 }
+
+
+
+.btn:hover{
+
+transform:translateY(-8px) scale(1.05);
+
+}
+
+
+
+
+.info{
+
+margin-top:35px;
+
+background:rgba(255,255,255,.1);
+
+padding:25px;
+
+border-radius:20px;
+
+}
+
+
+
 
 footer{
-padding:25px;
+
 text-align:center;
-background:#020617;
-}
 
-@media(max-width:900px){
+padding:20px;
 
-.hero{
-flex-direction:column-reverse;
-text-align:center;
-}
-
-.hero img{
-width:260px;
-height:260px;
-margin-bottom:40px;
-}
-
-.hero-text h1{
-font-size:42px;
-}
-
-nav{
-display:none;
-}
+opacity:.7;
 
 }
+
+
+
 </style>
+.loader{
+
+position:fixed;
+width:100%;
+height:100%;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+
+}
+
+
+.loader-text{
+
+font-size:60px;
+font-weight:bold;
+
+background:linear-gradient(45deg,#2563eb,#9333ea);
+
+-webkit-background-clip:text;
+color:transparent;
+
+animation:pulse 1s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+
+
+.skills,
+.gallery{
+
+margin-top:50px;
+
+background:rgba(255,255,255,.1);
+
+padding:30px;
+
+border-radius:25px;
+
+}
+
+
+
+.skill{
+
+margin:20px 0;
+
+font-size:18px;
+
+}
+
+
+
+.bar{
+
+height:12px;
+
+background:#222;
+
+border-radius:20px;
+
+margin-top:10px;
+
+overflow:hidden;
+
+}
+
+
+
+.bar span{
+
+display:block;
+
+height:100%;
+
+background:linear-gradient(90deg,#2563eb,#9333ea);
+
+border-radius:20px;
+
+}
+
+
+
+.photos{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+
+
+.photos img{
+
+width:200px;
+
+height:200px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+transition:.5s;
+
+}
+
+
+
+.photos img:hover{
+
+transform:scale(1.1) rotate(5deg);
+
+}
 
 </head>
 
+
 <body>
+<div class="loader">
 
-<header>
+<div class="loader-text">
+SHUVO
+</div>
 
-<div class="logo">ShuvoHub</div>
+</div>
 
-<nav>
 
-<a href="#home">Home</a>
 
-<a href="#about">About</a>
+<div class="container">
 
-<a href="#skills">Skills</a>
 
-<a href="#gallery">Gallery</a>
+<div class="card">
 
-<a href="#contact">Contact</a>
 
-</nav>
 
-</header>
+<div class="profile">
 
-<section class="hero" id="home">
+<!-- নিজের ছবি এখানে দিবি -->
 
-<div class="hero-text">
+<img src="" alt="Profile">
 
-<h1>Hello, I'm Shuvo</h1>
+</div>
 
-<h2>Web Designer & Developer</h2>
+
+
+<h1>Sahariya Islam Shuvo</h1>
+
 
 <p>
-Welcome to my professional portfolio website.
+Web Designer | Creator | Dream Builder
 </p>
 
-<a href="#about" class="btn">Explore</a>
+
+
+<div class="buttons">
+
+
+<a class="btn" href="https://www.facebook.com/share/1CvmzEHwo5/" target="_blank">
+Facebook
+</a>
+
+
+
+<a class="btn" href="https://www.instagram.com/sahariyashuvo_?igsh=MWRoNjNhdnlhOTg" target="_blank">
+Instagram
+</a>
+
 
 </div>
 
-<div>
 
-<img src="profile.jpg">
 
-</div>
 
-</section>
-<section id="about">
+<div class="info">
 
-<h2 class="title">About Me</h2>
 
-<div class="cards">
+<p>📞 01791996607</p>
 
-<div class="card">
+<p>✉️ Sahariyaislamshuvo469@gmail.com</p>
 
-<h3>Who I Am</h3>
+<p>📍 Savar, Dhaka, Bangladesh</p>
 
-<p>
-Hi! I'm <b>Shuvo</b>. I love creating beautiful, fast and modern websites using HTML, CSS and JavaScript.
-</p>
+<p>🎂 14-06-2008</p>
+
 
 </div>
 
-<div class="card">
 
-<h3>Experience</h3>
-
-<p>
-Responsive Design<br>
-Modern UI/UX<br>
-GitHub Pages<br>
-Portfolio Website
-</p>
 
 </div>
 
-<div class="card">
-
-<h3>Goal</h3>
-
-<p>
-To become a professional Full Stack Web Developer and build amazing websites.
-</p>
 
 </div>
 
-</div>
 
-</section>
+<footer>
 
-<section id="skills">
-
-<h2 class="title">My Skills</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>HTML5</h3>
-<p>95%</p>
-</div>
-
-<div class="card">
-<h3>CSS3</h3>
-<p>90%</p>
-</div>
-
-<div class="card">
-<h3>JavaScript</h3>
-<p>80%</p>
-</div>
-
-<div class="card">
-<h3>Responsive Design</h3>
-<p>90%</p>
-</div>
-
-<div class="card">
-<h3>GitHub Pages</h3>
-<p>85%</p>
-</div>
-
-<div class="card">
-<h3>UI Design</h3>
-<p>88%</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="gallery">
-
-<h2 class="title">Gallery</h2>
-
-<div class="gallery">
-
-<img src="58723-01.jpeg">
-
-<img src="IMG_20260531_005946_024.jpg>
-
-<img src="IMG_20260531_005946_139.jpg">
-
-<img src="IMG_20260719_181106_627.jpg">
-
-<img src="IMG_2272-1-01.jpeg">
-
-<img src="IMG_5274.HEIC">
-
-</div>
-
-</section>
-
-<section id="contact" class="contact">
-
-<h2 class="title">Contact Me</h2>
-
-<p>Email : sahariyaislamshuvo469@gmail.com</p>
-
-<p>Phone : 01791996607</p>
-
-<br>
-
-<a href="#">Facebook</a>
-
-<a href="#">Instagram</a>
-
-<a href="#">GitHub</a>
-
-</section>
-
-    <footer>
-
-<h3>ShuvoHub</h3>
-
-<p>Designed & Developed by Shuvo</p>
-
-<p>© 2026 All Rights Reserved.</p>
+© 2026 Sahariya Islam Shuvo
 
 </footer>
 
-<button id="topBtn">↑</button>
 
-<style>
-
-#topBtn{
-position:fixed;
-bottom:25px;
-right:25px;
-width:50px;
-height:50px;
-border:none;
-border-radius:50%;
-background:#38bdf8;
-color:white;
-font-size:22px;
-cursor:pointer;
-display:none;
-box-shadow:0 0 20px #38bdf8;
-transition:.3s;
-}
-
-#topBtn:hover{
-transform:scale(1.1);
-}
-
-.fade{
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.typing{
-border-right:3px solid #38bdf8;
-white-space:nowrap;
-overflow:hidden;
-animation:blink .8s infinite;
-}
-
-@keyframes blink{
-50%{
-border-color:transparent;
-}
-}
-
-</style>
-
+</body>
 <script>
 
-const topBtn=document.getElementById("topBtn");
+window.onload=function(){
 
-window.onscroll=function(){
-
-if(document.documentElement.scrollTop>300){
-
-topBtn.style.display="block";
-
-}else{
-
-topBtn.style.display="none";
+document.querySelector(".loader").style.display="none";
 
 }
 
-};
-
-topBtn.onclick=function(){
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-});
-
-document.querySelectorAll("section,.card").forEach(el=>{
-
-el.classList.add("fade");
-
-observer.observe(el);
-
-});
 
 </script>
 
 
-  // Scroll to top button
-const topBtn = document.createElement("button");
-topBtn.innerHTML = "↑";
-topBtn.id = "topBtn";
-document.body.appendChild(topBtn);
+</html>
 
-topBtn.style.position = "fixed";
-topBtn.style.bottom = "25px";
-topBtn.style.right = "25px";
-topBtn.style.width = "50px";
-topBtn.style.height = "50px";
-topBtn.style.border = "none";
-topBtn.style.borderRadius = "50%";
-topBtn.style.background = "#38bdf8";
-topBtn.style.color = "#fff";
-topBtn.style.fontSize = "22px";
-topBtn.style.cursor = "pointer";
-topBtn.style.display = "none";
-topBtn.style.boxShadow = "0 0 20px #38bdf8";
-topBtn.style.transition = ".3s";
+<script>
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-});
 
-topBtn.onclick = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-};
+// 3D Floating Particles
 
-// Fade animation
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
-});
+for(let i=0;i<40;i++){
 
-document.querySelectorAll("section,.card,.skill,.gallery img").forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "all .8s ease";
-    observer.observe(el);
-});
+let particle=document.createElement("div");
 
-// Typing effect
-const title = document.querySelector(".hero-text h2");
+particle.style.position="fixed";
+particle.style.width="8px";
+particle.style.height="8px";
+particle.style.background="white";
+particle.style.borderRadius="50%";
+particle.style.opacity="0.5";
 
-if (title) {
-    const text = title.textContent;
-    title.textContent = "";
+particle.style.left=Math.random()*100+"%";
+particle.style.top=Math.random()*100+"%";
 
-    let i = 0;
+particle.style.animation=
+"move "+(5+Math.random()*10)+"s infinite";
 
-    function typeWriter() {
-        if (i < text.length) {
-            title.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 80);
-        }
-    }
+document.body.appendChild(particle);
 
-    typeWriter();
 }
 
-// Current year
-const footer = document.querySelector("footer p:last-child");
-if (footer) {
-    footer.innerHTML = `© ${new Date().getFullYear()} All Rights Reserved.`;
-}
 
-// Welcome message
-window.onload = () => {
-    console.log("Welcome to ShuvoHub");
-};
 
-          // Scroll to top button
-const topBtn = document.createElement("button");
-topBtn.innerHTML = "↑";
-topBtn.id = "topBtn";
-document.body.appendChild(topBtn);
+// Mouse 3D Effect
 
-topBtn.style.position = "fixed";
-topBtn.style.bottom = "25px";
-topBtn.style.right = "25px";
-topBtn.style.width = "50px";
-topBtn.style.height = "50px";
-topBtn.style.border = "none";
-topBtn.style.borderRadius = "50%";
-topBtn.style.background = "#38bdf8";
-topBtn.style.color = "#fff";
-topBtn.style.fontSize = "22px";
-topBtn.style.cursor = "pointer";
-topBtn.style.display = "none";
-topBtn.style.boxShadow = "0 0 20px #38bdf8";
-topBtn.style.transition = ".3s";
+const card=document.querySelector(".card");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
+
+document.addEventListener("mousemove",(e)=>{
+
+
+let x=(window.innerWidth/2-e.clientX)/30;
+
+let y=(window.innerHeight/2-e.clientY)/30;
+
+
+card.style.transform=
+`rotateY(${x}deg) rotateX(${y}deg)`;
+
+
 });
 
-topBtn.onclick = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-};
 
-// Fade animation
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-        }
-    });
+
+// Reset Effect
+
+document.addEventListener("mouseleave",()=>{
+
+card.style.transform="rotateY(0deg) rotateX(0deg)";
+
 });
 
-document.querySelectorAll("section,.card,.skill,.gallery img").forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "all .8s ease";
-    observer.observe(el);
-});
 
-// Typing effect
-const title = document.querySelector(".hero-text h2");
 
-if (title) {
-    const text = title.textContent;
-    title.textContent = "";
+</script>
 
-    let i = 0;
 
-    function typeWriter() {
-        if (i < text.length) {
-            title.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 80);
-        }
-    }
 
-    typeWriter();
+<style>
+
+
+@keyframes move{
+
+
+0%{
+
+transform:translateY(0px);
+
 }
 
-// Current year
-const footer = document.querySelector("footer p:last-child");
-if (footer) {
-    footer.innerHTML = `© ${new Date().getFullYear()} All Rights Reserved.`;
+
+50%{
+
+transform:translateY(-80px);
+
 }
 
-// Welcome message
-window.onload = () => {
-    console.log("Welcome to ShuvoHub");
-};
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+
+}
+
+
+
+</style>
+
+<div class="skills">
+
+<h2>My Skills</h2>
+
+<div class="skill">
+HTML
+<div class="bar">
+<span style="width:90%"></span>
+</div>
+</div>
+
+
+<div class="skill">
+CSS
+<div class="bar">
+<span style="width:85%"></span>
+</div>
+</div>
+
+
+<div class="skill">
+Web Design
+<div class="bar">
+<span style="width:80%"></span>
+</div>
+</div>
+
+
+</div>
+
+
+
+<div class="gallery">
+
+
+<h2>My Gallery</h2>
+
+
+<div class="photos">
+
+
+<img src="" alt="Photo">
+
+<img src="" alt="Photo">
+
+<img src="" alt="Photo">
+
+
+</div>
+
+
+</div>
+
+
+
