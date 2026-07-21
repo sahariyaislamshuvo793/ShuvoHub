@@ -7,292 +7,102 @@
 
 <title>Sahariya Islam Shuvo</title>
 
+
 <style>
+.gallery{
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
+display:flex;
 
+gap:25px;
 
-body{
-min-height:100vh;
-background:#050816;
-color:white;
-overflow-x:hidden;
-}
+justify-content:center;
 
-
-/* 3D Background */
-
-body::before{
-
-content:"";
-
-position:fixed;
-width:500px;
-height:500px;
-background:#2563eb;
-filter:blur(120px);
-top:-100px;
-left:-100px;
-z-index:-1;
-
-}
-
-
-body::after{
-
-content:"";
-
-position:fixed;
-width:400px;
-height:400px;
-background:#9333ea;
-filter:blur(120px);
-bottom:-100px;
-right:-100px;
-z-index:-1;
+flex-wrap:wrap;
 
 }
 
 
 
+.photo img{
 
-.container{
+width:250px;
 
-width:90%;
-max-width:900px;
-margin:auto;
-padding:50px 0;
-
-}
-
-
-
-
-.card{
-
-background:rgba(255,255,255,0.12);
-
-backdrop-filter:blur(15px);
-
-border:1px solid rgba(255,255,255,0.2);
-
-border-radius:30px;
-
-padding:40px;
-
-text-align:center;
-
-box-shadow:
-0 25px 50px rgba(0,0,0,.5);
-
-transform-style:preserve-3d;
-
-transition:.5s;
-
-}
-
-
-
-.card:hover{
-
-transform:
-rotateY(8deg)
-rotateX(5deg)
-translateY(-10px);
-
-}
-
-
-
-
-/* Picture */
-
-.profile img{
-
-width:200px;
-height:200px;
-
-border-radius:50%;
+height:250px;
 
 object-fit:cover;
 
-border:5px solid white;
-
-box-shadow:
-0 0 30px #2563eb;
+border-radius:25px;
 
 transition:.5s;
 
-}
-
-
-
-.profile img:hover{
-
-transform:scale(1.1) rotate(5deg);
+border:2px solid rgba(255,255,255,.3);
 
 }
 
 
 
+.photo img:hover{
 
-h1{
+transform:
 
-font-size:45px;
+perspective(600px)
 
-margin:20px 0;
+rotateY(20deg)
 
-background:linear-gradient(90deg,#fff,#60a5fa);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-}
+scale(1.1);
 
 
+box-shadow:
 
-p{
-
-font-size:18px;
-
-line-height:2;
+0 20px 50px #000;
 
 }
 
 
 
+.contact{
 
+text-align:center;
 
-.buttons{
-
-margin-top:30px;
+line-height:2.5;
 
 }
 
 
 
+.contact h3{
 
-.btn{
+color:#60a5fa;
 
-display:inline-block;
+}
 
-padding:14px 35px;
+.timeline{
 
-margin:10px;
+display:flex;
+flex-direction:column;
+gap:25px;
 
-border-radius:50px;
+}
 
-background:linear-gradient(45deg,#2563eb,#9333ea);
 
-color:white;
+.item{
 
-text-decoration:none;
+padding:25px;
 
-font-weight:bold;
+border-left:4px solid #60a5fa;
 
-box-shadow:0 10px 25px #000;
+background:rgba(255,255,255,.08);
+
+border-radius:15px;
 
 transition:.4s;
 
 }
 
 
+.item:hover{
 
-.btn:hover{
-
-transform:translateY(-8px) scale(1.05);
-
-}
-
-
-
-
-.info{
-
-margin-top:35px;
-
-background:rgba(255,255,255,.1);
-
-padding:25px;
-
-border-radius:20px;
-
-}
-
-
-
-
-footer{
-
-text-align:center;
-
-padding:20px;
-
-opacity:.7;
-
-}
-
-
-
-</style>
-.loader{
-
-position:fixed;
-width:100%;
-height:100%;
-background:#050816;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-
-}
-
-
-.loader-text{
-
-font-size:60px;
-font-weight:bold;
-
-background:linear-gradient(45deg,#2563eb,#9333ea);
-
--webkit-background-clip:text;
-color:transparent;
-
-animation:pulse 1s infinite;
-
-}
-
-
-
-@keyframes pulse{
-
-50%{
-
-transform:scale(1.2);
-
-}
-
-}
-
-
-
-.skills,
-.gallery{
-
-margin-top:50px;
-
-background:rgba(255,255,255,.1);
-
-padding:30px;
-
-border-radius:25px;
+transform:translateX(15px);
 
 }
 
@@ -300,9 +110,9 @@ border-radius:25px;
 
 .skill{
 
-margin:20px 0;
+font-size:20px;
 
-font-size:18px;
+margin:25px 0;
 
 }
 
@@ -330,76 +140,341 @@ display:block;
 
 height:100%;
 
-background:linear-gradient(90deg,#2563eb,#9333ea);
+background:linear-gradient(
+90deg,
+#2563eb,
+#e879f9
+);
 
 border-radius:20px;
 
+animation:grow 2s;
+
 }
 
 
 
-.photos{
+@keyframes grow{
 
+from{
+
+width:0;
+
+}
+
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+
+html{
+scroll-behavior:smooth;
+}
+
+
+body{
+
+background:#050816;
+color:white;
+overflow-x:hidden;
+
+}
+
+
+
+/* Background Glow */
+
+body:before{
+
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#2563eb;
+filter:blur(150px);
+top:-150px;
+left:-150px;
+z-index:-1;
+
+}
+
+
+
+body:after{
+
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#9333ea;
+filter:blur(150px);
+bottom:-150px;
+right:-150px;
+z-index:-1;
+
+}
+
+
+
+
+/* Loading */
+
+.loader{
+
+position:fixed;
+height:100%;
+width:100%;
+background:#050816;
 display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
+align-items:center;
 justify-content:center;
+z-index:999;
+
+}
+
+
+.loader h1{
+
+font-size:60px;
+animation:load 1s infinite alternate;
 
 }
 
 
 
-.photos img{
+@keyframes load{
 
-width:200px;
+from{
+transform:scale(.8);
+opacity:.5;
+}
 
-height:200px;
+to{
+transform:scale(1.2);
+opacity:1;
+}
 
+}
+
+
+
+
+/* Container */
+
+
+.container{
+
+width:90%;
+max-width:1100px;
+margin:auto;
+
+}
+
+
+
+/* Hero */
+
+
+.hero{
+
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+}
+
+
+
+.profile{
+
+position:relative;
+}
+
+
+
+.profile img{
+
+width:220px;
+height:220px;
+border-radius:50%;
 object-fit:cover;
 
-border-radius:20px;
+border:5px solid white;
 
-transition:.5s;
+box-shadow:
+0 0 30px #2563eb,
+0 0 70px #9333ea;
+
+animation:float 4s infinite;
+
+}
+
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-20px);
+
+}
 
 }
 
 
 
-.photos img:hover{
 
-transform:scale(1.1) rotate(5deg);
+h1{
+
+font-size:50px;
+margin:25px 0;
+
+background:linear-gradient(90deg,#60a5fa,#e879f9);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
+
+
+
+.hero p{
+
+font-size:20px;
+opacity:.8;
+
+}
+
+
+
+
+.buttons{
+
+margin-top:30px;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+
+padding:15px 35px;
+
+margin:10px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+color:white;
+
+background:linear-gradient(45deg,#2563eb,#9333ea);
+
+box-shadow:0 10px 30px #000;
+
+transition:.4s;
+
+}
+
+
+
+.btn:hover{
+
+transform:translateY(-8px) scale(1.05);
+
+}
+
+
+
+
+section{
+
+padding:80px 0;
+
+}
+
+
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+margin-bottom:40px;
+
+}
+
+
+
+
+
+.glass{
+
+background:rgba(255,255,255,.1);
+
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+padding:40px;
+
+border-radius:30px;
+
+box-shadow:0 20px 50px #000;
+
+}
+
+
+
+</style>
 
 </head>
 
 
 <body>
+
+
+
+
 <div class="loader">
 
-<div class="loader-text">
-SHUVO
-</div>
+<h1>SHUVO</h1>
 
 </div>
+
 
 
 
 <div class="container">
 
 
-<div class="card">
 
+<section class="hero">
+
+
+<div>
 
 
 <div class="profile">
 
-  <img src="IMG_20260531_005946_139.jpg" alt="Profile Picture">
+
+<!-- নিজের ছবি এখানে দিবি -->
 
 <img src="" alt="Profile">
+
 
 </div>
 
@@ -409,7 +484,7 @@ SHUVO
 
 
 <p>
-Web Designer | Creator | Dream Builder
+Creative Web Designer | Dreamer | Creator
 </p>
 
 
@@ -422,7 +497,6 @@ Facebook
 </a>
 
 
-
 <a class="btn" href="https://www.instagram.com/sahariyashuvo_?igsh=MWRoNjNhdnlhOTg" target="_blank">
 Instagram
 </a>
@@ -431,200 +505,322 @@ Instagram
 </div>
 
 
+</div>
 
 
-<div class="info">
+</section>
 
 
-<p>📞 01791996607</p>
 
-<p>✉️ Sahariyaislamshuvo469@gmail.com</p>
+<section>
 
-<p>📍 Savar, Dhaka, Bangladesh</p>
+<h2 class="title">
+About Me
+</h2>
 
-<p>🎂 14-06-2008</p>
+
+<div class="glass">
+
+<p>
+
+Welcome to my personal website.
+I love technology, creativity and building new digital experiences.
+
+</p>
 
 
 </div>
 
 
+</section>
+
 
 </div>
 
 
-</div>
+<script>
+
+setTimeout(()=>{
+
+document.querySelector(".loader").style.display="none";
+
+},2000);
+
+
+</script>
+
+
+</body>
+<button id="mode">
+🌙
+</button>
+
+
+<button id="top">
+⬆️
+</button>
+
 
 
 <footer>
 
-© 2026 Sahariya Islam Shuvo
+<h2>Sahariya Islam Shuvo</h2>
+
+<p>
+© 2026 All Rights Reserved
+</p>
 
 </footer>
+  <script>
 
 
-</body>
-<script>
+// Dark Light Mode
 
-window.onload=function(){
+document.getElementById("mode").onclick=function(){
 
-document.querySelector(".loader").style.display="none";
-
-}
-
-
-</script>
-
-
-</html>
-
-<script>
-
-
-// 3D Floating Particles
-
-for(let i=0;i<40;i++){
-
-let particle=document.createElement("div");
-
-particle.style.position="fixed";
-particle.style.width="8px";
-particle.style.height="8px";
-particle.style.background="white";
-particle.style.borderRadius="50%";
-particle.style.opacity="0.5";
-
-particle.style.left=Math.random()*100+"%";
-particle.style.top=Math.random()*100+"%";
-
-particle.style.animation=
-"move "+(5+Math.random()*10)+"s infinite";
-
-document.body.appendChild(particle);
+document.body.classList.toggle("light");
 
 }
 
 
 
-// Mouse 3D Effect
+// Back To Top
 
-const card=document.querySelector(".card");
-
-
-document.addEventListener("mousemove",(e)=>{
+let topBtn=document.getElementById("top");
 
 
-let x=(window.innerWidth/2-e.clientX)/30;
+window.onscroll=function(){
 
-let y=(window.innerHeight/2-e.clientY)/30;
+if(document.documentElement.scrollTop>300){
+
+topBtn.style.display="block";
+
+}
+
+else{
+
+topBtn.style.display="none";
+
+}
+
+}
 
 
-card.style.transform=
-`rotateY(${x}deg) rotateX(${y}deg)`;
 
+topBtn.onclick=function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
 
 });
 
-
-
-// Reset Effect
-
-document.addEventListener("mouseleave",()=>{
-
-card.style.transform="rotateY(0deg) rotateX(0deg)";
-
-});
+}
 
 
 
 </script>
+  
+
+
+</html>here
+
+<section>
+
+<h2 class="title">
+My Journey
+</h2>
+
+
+<div class="glass timeline">
+
+
+<div class="item">
+
+<h3>🎓 Education</h3>
+
+<p>
+Learning new things and improving my skills every day.
+</p>
+
+</div>
 
 
 
-<style>
+<div class="item">
 
+<h3>💻 Web Design</h3>
 
-@keyframes move{
+<p>
+Creating modern websites with creative ideas and technology.
+</p>
 
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-
-50%{
-
-transform:translateY(-80px);
-
-}
-
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-
-}
+</div>
 
 
 
-</style>
+<div class="item">
 
-<div class="skills">
+<h3>🚀 Future Goal</h3>
 
-<h2>My Skills</h2>
+<p>
+Building unique digital projects and becoming better every day.
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2 class="title">
+My Skills
+</h2>
+
+
+
+<div class="glass">
+
 
 <div class="skill">
+
 HTML
+
+<div class="bar">
+<span style="width:95%"></span>
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+CSS
+
 <div class="bar">
 <span style="width:90%"></span>
 </div>
+
 </div>
 
 
+
+
 <div class="skill">
-CSS
+
+Creative Design
+
 <div class="bar">
 <span style="width:85%"></span>
 </div>
+
 </div>
+
 
 
 <div class="skill">
-Web Design
+
+Technology
+
 <div class="bar">
 <span style="width:80%"></span>
 </div>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+<section>
+
+<h2 class="title">
+My Gallery
+</h2>
+
+
+<div class="gallery glass">
+
+
+<div class="photo">
+
+<!-- ছবি এখানে দিবি -->
+
+<img src="" alt="Gallery Photo">
+
+</div>
+
+
+<div class="photo">
+
+<img src="" alt="Gallery Photo">
+
+</div>
+
+
+<div class="photo">
+
+<img src="" alt="Gallery Photo">
+
 </div>
 
 
 </div>
 
 
-
-<div class="gallery">
-
-
-<h2>My Gallery</h2>
+</section>
 
 
-<div class="IMG_2272-1-01.jpeg">
 
 
-<img src="" alt="IMG_20260719_181106_627.jpg">
 
-<img src="" alt="IMG_20260531_005946_139.jpg">
+<section>
 
-<img src="" alt="IMG_20260531_005946_024.jpg">
+
+<h2 class="title">
+Contact Me
+</h2>
+
+
+<div class="glass contact">
+
+
+<h3>📞 Phone</h3>
+<p>01791996607</p>
+
+
+<h3>✉️ Email</h3>
+<p>Sahariyaislamshuvo469@gmail.com</p>
+
+
+<h3>📍 Location</h3>
+<p>Savar, Dhaka, Bangladesh</p>
 
 
 </div>
 
 
-</div>
+</section>
+
+
+
+
+
+
 
 
 
