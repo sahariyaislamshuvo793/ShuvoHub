@@ -129,6 +129,26 @@ Contact
 
 <script src="script.js"></script>
 
+  <script>
+function sendWhatsApp() {
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let message=document.getElementById("message").value;
+
+let phone="8801791996607";
+
+let text=`🌟 New Website Message
+
+👤 Name: ${name}
+
+📧 Email: ${email}
+
+💬 Message:
+${message}`;
+
+window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(text),"_blank");
+}
+</script>
 </body>
 </html>
 
@@ -328,16 +348,10 @@ My Travel Journey
 Gallery
 </h1>
 
-  <img src="images/IMG_3179.HEIC" alt="Photo 1">
-
-  <img src="images/IMG_2273-1.HEIC" alt="Photo 2">
-
-  <img src="images/IMG_2272-1.HEIC" alt="Photo 3">
-
-  <img src="images/IMG_3179.HEIC" alt="Photo 4">
-
-  <img src="images/IMG_2309.HEIC" alt="Photo 5">
-
+  <img src="images/IMG_3179.jpg">
+<img src="images/IMG_2273-1.jpg">
+<img src="images/IMG_2272-1.jpg">
+<img src="images/IMG_2309.jpg">
 </div>
 
 </section>
@@ -350,7 +364,7 @@ Gallery
 Contact Me
 </h1>
 
-<form onsubmit="sendWhatsApp(); return false;">
+<form class="contact-box glass-card" onsubmit="sendWhatsApp(); return false;">
 
 <input type="text" id="name" placeholder="Your Name" required>
 
