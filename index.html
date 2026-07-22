@@ -122,40 +122,58 @@ Contact
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Picture</title>
+  <title>Medium Profile Picture</title>
   <style>
-    /* Small Facebook Style Profile Avatar */
-    .profile-avatar {
-      width: 45px;                 /* Chhoto size (35px theke 50px rakha jay) */
-      height: 45px;
-      border-radius: 50%;          /* Gol shape */
+    body {
+      background-color: #030712;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Medium Size Profile Container */
+    .profile-medium {
+      width: 100px;                /* Perfect Medium Size */
+      height: 100px;
+      border-radius: 50%;          /* Gol Shape */
       overflow: hidden;
-      border: 2px solid #00f2fe;    /* Light cyan neon border */
-      box-shadow: 0 0 10px rgba(0, 242, 254, 0.5); /* Glow effect */
-      display: inline-block;
+      padding: 3px;                /* Border Gap */
+      background: linear-gradient(135deg, #00f2fe, #4facfe); /* Neon Cyan Gradient Border */
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
 
-    .profile-avatar img {
+    /* Image Inside Frame */
+    .profile-medium img {
       width: 100%;
       height: 100%;
-      object-fit: cover;          /* Stretch na hoye center-e fit hobe */
+      border-radius: 50%;
+      object-fit: cover;          /* Picture distortion chara perfectly fit hobe */
       object-position: center;
       display: block;
+      background-color: #0b132b;
+    }
+
+    /* Hover Glow Effect */
+    .profile-medium:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
     }
   </style>
 </head>
 <body>
 
-  <!-- Single Profile Avatar -->
-  <div class="profile-avatar">
-    <img src="IMG_2272-1.HEIC" alt="Profile" onerror="this.src='https://picsum.photos/100/100'">
+  <!-- Medium Profile Picture -->
+  <div class="profile-medium">
+    <img src="IMG_20260719_181106_627.jpg" alt="Profile Picture" onerror="this.src='https://picsum.photos/200/200'">
   </div>
 
 </body>
 </html>
 
- 
 </div>
 
 </section>
@@ -578,7 +596,7 @@ Message: ${message}`;
 
 <p>
 
-© 2026 Sahariya Islam Shuvo | Premium Personal Website
+© 2026 Sahariya Islam Shuvo | Premium Website
 
 </p>
 
