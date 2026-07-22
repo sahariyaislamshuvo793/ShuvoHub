@@ -762,3 +762,20 @@ margin-top:25px;
 color:#bbb;
 font-size:18px;
 }
+
+/* CSS Style */
+.avatar {
+  width: 150px;           /* Frame-er width */
+  height: 150px;          /* Frame-er height */
+  border-radius: 50%;     /* Chhobi-ke gol (circle) korbe */
+  overflow: hidden;       /* Frame-er bahire kichu thakle ta kete dibe */
+  border: 3px solid #fff; /* Border color (dorkar hole change koro) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft drop shadow */
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Chhobi ke stretch/distortion chara adjust korbe */
+  display: block;
+}
