@@ -165,3 +165,135 @@ nav ul li a:hover{
         transform:translateY(-20px);
     }
 }
+/* ===========================
+   ABOUT SECTION
+=========================== */
+
+section{
+    padding:90px 10%;
+}
+
+section h2{
+    text-align:center;
+    font-size:40px;
+    color:#00eaff;
+    margin-bottom:40px;
+    text-shadow:0 0 20px #00eaff;
+}
+
+.about-box,
+.card{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px rgba(0,255,255,.15);
+    transition:.4s;
+}
+
+.about-box:hover,
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 35px #00eaff;
+}
+
+.about-box p,
+.card p{
+    font-size:18px;
+    line-height:1.8;
+    color:#e8e8e8;
+}
+
+/* ===========================
+   EDUCATION
+=========================== */
+
+.education .card h3{
+    color:#ff4df0;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+/* ===========================
+   SKILLS
+=========================== */
+
+.skill{
+    max-width:850px;
+    margin:25px auto;
+    font-size:20px;
+    font-weight:600;
+}
+
+.bar{
+    width:100%;
+    height:16px;
+    background:#1d2338;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.bar div{
+    height:100%;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00eaff,#00ff88,#ff4df0);
+    box-shadow:0 0 20px #00eaff;
+    animation:growBar 2s ease;
+}
+
+@keyframes growBar{
+    from{
+        width:0;
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+nav{
+    padding:15px 5%;
+}
+
+nav ul{
+    display:none;
+}
+
+#home{
+    flex-direction:column-reverse;
+    text-align:center;
+    padding-top:120px;
+}
+
+.hero-right img{
+    width:250px;
+    margin-bottom:40px;
+}
+
+.hero-left h1{
+    font-size:40px;
+}
+
+.hero-left h2{
+    font-size:26px;
+}
+
+section h2{
+    font-size:32px;
+}
+
+.about-box,
+.card{
+    padding:20px;
+}
+
+}
+
+
+
