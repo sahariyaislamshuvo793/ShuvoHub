@@ -350,19 +350,34 @@ Gallery
 Contact Me
 </h1>
 
-<form class="contact-box glass-card"
-action="https://formsubmit.co/Sahariyaislamshuvo469@gmail.com"
-method="POST">
+<form onsubmit="sendWhatsApp(); return false;">
 
-<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" id="name" placeholder="Your Name" required>
 
-<input type="email" name="email" placeholder="Your Email" required>
+<input type="email" id="email" placeholder="Your Email" required>
 
-<textarea name="message" rows="6" placeholder="Write your message..." required></textarea>
+<textarea id="message" placeholder="Write your message..." required></textarea>
 
 <button type="submit">Send Message</button>
 
 </form>
+
+<script>
+function sendWhatsApp() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let phone = "8801791996607"; // এখানে তোমার WhatsApp নম্বর (শুরুতে 0 নয়)
+
+    let text =
+`Name: ${name}
+Email: ${email}
+Message: ${message}`;
+
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+}
+</script>
 </section>
 
 <!-- FOOTER -->
