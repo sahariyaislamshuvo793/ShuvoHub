@@ -836,6 +836,113 @@ Contact Me
 </section>
 
 
+<section class="travel">
+<h1>🌍 My Travel Journey</h1>
+
+<div class="map">
+
+<div class="point cox"><span>Cox's Bazar</span></div>
+
+<div class="point bandarban"><span>Bandarban</span></div>
+
+<div class="point rangamati"><span>Rangamati</span></div>
+
+<div class="point ctg"><span>Chittagong</span></div>
+
+<div class="point sajek"><span>Sajek</span></div>
+
+<div class="point khagra"><span>Khagrachhari</span></div>
+
+<div class="point sylhet"><span>Sylhet</span></div>
+
+<div class="point tanguar"><span>Tanguar Haor</span></div>
+
+<div class="point valley"><span>Marayong Valley</span></div>
+
+</div>
+</section>
+
+.travel{
+padding:80px 20px;
+text-align:center;
+background:#050816;
+}
+
+.travel h1{
+color:#fff;
+font-size:40px;
+margin-bottom:40px;
+}
+
+.map{
+position:relative;
+width:900px;
+max-width:100%;
+height:650px;
+margin:auto;
+background:url("bangladesh-map.png") center/contain no-repeat;
+}
+
+.point{
+position:absolute;
+width:22px;
+height:22px;
+background:#00e5ff;
+border-radius:50%;
+box-shadow:
+0 0 20px cyan,
+0 0 40px cyan,
+0 0 60px cyan;
+animation:pulse 2s infinite;
+cursor:pointer;
+transition:.4s;
+}
+
+.point:hover{
+transform:scale(2) rotateY(180deg);
+}
+
+.point span{
+position:absolute;
+top:-40px;
+left:-30px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:8px 15px;
+border-radius:30px;
+color:white;
+display:none;
+white-space:nowrap;
+}
+
+.point:hover span{
+display:block;
+}
+
+.cox{bottom:30px;right:120px;}
+.bandarban{bottom:80px;right:160px;}
+.rangamati{bottom:130px;right:180px;}
+.ctg{bottom:120px;right:120px;}
+.sajek{bottom:180px;right:190px;}
+.khagra{bottom:170px;right:160px;}
+.sylhet{top:120px;right:180px;}
+.tanguar{top:100px;right:240px;}
+.valley{bottom:150px;right:150px;}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.6);
+}
+100%{
+transform:scale(1);
+}
+}
+
+
+
 
 
 
