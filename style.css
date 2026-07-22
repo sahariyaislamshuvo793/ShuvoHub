@@ -186,3 +186,30 @@ header p{
     }
 }
 
+.travel-route{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.route{
+fill:none;
+stroke:#00e5ff;
+stroke-width:4;
+stroke-linecap:round;
+stroke-dasharray:12;
+animation:routeMove 2s linear infinite;
+filter:drop-shadow(0 0 12px cyan);
+}
+
+@keyframes routeMove{
+from{
+stroke-dashoffset:100;
+}
+to{
+stroke-dashoffset:0;
+}
+}
