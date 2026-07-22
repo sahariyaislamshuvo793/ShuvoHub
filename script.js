@@ -248,3 +248,57 @@ link.classList.add("active");
 });
 
 });
+
+// Counter Animation
+
+const counters=document.querySelectorAll(".counter");
+
+const runCounter=()=>{
+
+counters.forEach(counter=>{
+
+const target=+counter.dataset.target;
+
+let count=0;
+
+const update=()=>{
+
+const speed=Math.ceil(target/100);
+
+count+=speed;
+
+if(count<target){
+
+counter.innerText=count;
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+};
+
+update();
+
+});
+
+};
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+runCounter();
+
+}
+
+});
+
+});
+
+document.querySelectorAll("#stats").forEach(sec=>observer.observe(sec));
