@@ -1,992 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sahariya Islam Shuvo</title>
+<title>Sahariya Islam Shuvo | Official Portfolio</title>
 
+<link rel="stylesheet" href="style.css">
 
-<style>
-.gallery{
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-display:flex;
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-gap:25px;
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-justify-content:center;
-
-flex-wrap:wrap;
-
-}
-
-
-
-.photo img{
-
-width:250px;
-
-height:250px;
-
-object-fit:cover;
-
-border-radius:25px;
-
-transition:.5s;
-
-border:2px solid rgba(255,255,255,.3);
-
-}
-
-
-
-.photo img:hover{
-
-transform:
-
-perspective(600px)
-
-rotateY(20deg)
-
-scale(1.1);
-
-
-box-shadow:
-
-0 20px 50px #000;
-
-}
-
-
-
-.contact{
-
-text-align:center;
-
-line-height:2.5;
-
-}
-
-
-
-.contact h3{
-
-color:#60a5fa;
-
-}
-
-.timeline{
-
-display:flex;
-flex-direction:column;
-gap:25px;
-
-}
-
-
-.item{
-
-padding:25px;
-
-border-left:4px solid #60a5fa;
-
-background:rgba(255,255,255,.08);
-
-border-radius:15px;
-
-transition:.4s;
-
-}
-
-
-.item:hover{
-
-transform:translateX(15px);
-
-}
-
-
-
-.skill{
-
-font-size:20px;
-
-margin:25px 0;
-
-}
-
-
-
-.bar{
-
-height:12px;
-
-background:#222;
-
-border-radius:20px;
-
-margin-top:10px;
-
-overflow:hidden;
-
-}
-
-
-
-.bar span{
-
-display:block;
-
-height:100%;
-
-background:linear-gradient(
-90deg,
-#2563eb,
-#e879f9
-);
-
-border-radius:20px;
-
-animation:grow 2s;
-
-}
-
-
-
-@keyframes grow{
-
-from{
-
-width:0;
-
-}
-
-}
-
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-
-html{
-scroll-behavior:smooth;
-}
-
-
-body{
-
-background:#050816;
-color:white;
-overflow-x:hidden;
-
-}
-
-
-
-/* Background Glow */
-
-body:before{
-
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:#2563eb;
-filter:blur(150px);
-top:-150px;
-left:-150px;
-z-index:-1;
-
-}
-
-
-
-body:after{
-
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:#9333ea;
-filter:blur(150px);
-bottom:-150px;
-right:-150px;
-z-index:-1;
-
-}
-
-
-
-
-/* Loading */
-
-.loader{
-
-position:fixed;
-height:100%;
-width:100%;
-background:#050816;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:999;
-
-}
-
-
-.loader h1{
-
-font-size:60px;
-animation:load 1s infinite alternate;
-
-}
-
-
-
-@keyframes load{
-
-from{
-transform:scale(.8);
-opacity:.5;
-}
-
-to{
-transform:scale(1.2);
-opacity:1;
-}
-
-}
-
-
-
-
-/* Container */
-
-
-.container{
-
-width:90%;
-max-width:1100px;
-margin:auto;
-
-}
-
-
-
-/* Hero */
-
-
-.hero{
-
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-
-}
-
-
-
-.profile{
-
-position:relative;
-}
-
-
-
-.profile img{
-
-width:220px;
-height:220px;
-border-radius:50%;
-object-fit:cover;
-
-border:5px solid white;
-
-box-shadow:
-0 0 30px #2563eb,
-0 0 70px #9333ea;
-
-animation:float 4s infinite;
-
-}
-
-
-
-
-@keyframes float{
-
-50%{
-
-transform:translateY(-20px);
-
-}
-
-}
-
-
-
-
-h1{
-
-font-size:50px;
-margin:25px 0;
-
-background:linear-gradient(90deg,#60a5fa,#e879f9);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-}
-
-
-
-.hero p{
-
-font-size:20px;
-opacity:.8;
-
-}
-
-
-
-
-.buttons{
-
-margin-top:30px;
-
-}
-
-
-
-.btn{
-
-display:inline-block;
-
-padding:15px 35px;
-
-margin:10px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-color:white;
-
-background:linear-gradient(45deg,#2563eb,#9333ea);
-
-box-shadow:0 10px 30px #000;
-
-transition:.4s;
-
-}
-
-
-
-.btn:hover{
-
-transform:translateY(-8px) scale(1.05);
-
-}
-
-
-
-
-section{
-
-padding:80px 0;
-
-}
-
-
-
-.title{
-
-text-align:center;
-
-font-size:40px;
-
-margin-bottom:40px;
-
-}
-
-
-
-
-
-.glass{
-
-background:rgba(255,255,255,.1);
-
-border:1px solid rgba(255,255,255,.2);
-
-backdrop-filter:blur(15px);
-
-padding:40px;
-
-border-radius:30px;
-
-box-shadow:0 20px 50px #000;
-
-}
-
-
-
-</style>
+<script src="https://unpkg.com/scrollreveal"></script>
 
 </head>
 
-
 <body>
 
+<!-- Loading -->
 
+<div id="loader">
 
-
-<div class="loader">
-
-<h1>SHUVO</h1>
-
-</div>
-
-
-
-
-<div class="container">
-
-
-
-<section class="hero">
-
-
-<div>
-
-
-<div class="profile">
-
-
-<!-- Profile Picture -->
-<div class="profile">
-    <img src="IMG_2272-1-01.jpeg" alt="Profile Picture" class="profile-img">
-</div>
-
-<img src="" alt="Profile">
-
+<h1>SAHARIYA ISLAM SHUVO</h1>
 
 </div>
 
+<!-- Animated Background -->
 
+<div class="bg-animation"></div>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+
+SHUVO
+
+</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#travel">Travel</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section id="home">
+
+<div class="hero-left">
+
+<h3>Hello, I'm</h3>
 
 <h1>Sahariya Islam Shuvo</h1>
 
+<h2><span class="typing"></span></h2>
 
 <p>
-students  | freelancer   | Traveller 
+
+Dream Big • Work Hard • Travel More
+
 </p>
 
+<a href="#about" class="btn">
 
+Explore
 
-<div class="buttons">
-
-
-<a class="btn" href="https://www.facebook.com/share/1CvmzEHwo5/" target="_blank">
-Facebook
 </a>
 
-
-<a class="btn" href="https://www.instagram.com/sahariyashuvo_?igsh=MWRoNjNhdnlhOTg" target="_blank">
-Instagram
-</a>
-
-
 </div>
 
+<div class="hero-right">
 
-</div>
+<img src="images/profile.png" alt="Profile">
 
-
-</section>
-
-
-
-<section>
-
-<h2 class="title">
-About Me
-</h2>
-
-
-<div class="glass">
-
-<p>
-
-Hi, I'm Sahariya Islam Shuvo.
-
-Welcome to my personal website! I'm passionate about learning new things, exploring technology, and creating modern websites. I enjoy turning ideas into beautiful and interactive web experiences.
-
-I always believe that hard work, consistency, and creativity are the keys to success. Every day is a new opportunity to learn, improve, and achieve something meaningful.
-
-Thank you for visiting my website. Feel free to explore my work and connect with me through my social media.
-
-"Dream Big • Work Hard • Stay Humble."
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-</div>
-
-
-<script>
-
-setTimeout(()=>{
-
-document.querySelector(".loader").style.display="none";
-
-},2000);
-
-
-</script>
-
-
-</body>
-<button id="mode">
-🌙
-</button>
-
-
-<button id="top">
-⬆️
-</button>
-
-
-
-<footer>
-
-<h2>Sahariya Islam Shuvo</h2>
-
-<p>
-© 2026 All Rights Reserved
-</p>
-
-</footer>
-  <script>
-
-
-// Dark Light Mode
-
-document.getElementById("mode").onclick=function(){
-
-document.body.classList.toggle("light");
-
-}
-
-
-
-// Back To Top
-
-let topBtn=document.getElementById("top");
-
-
-window.onscroll=function(){
-
-if(document.documentElement.scrollTop>300){
-
-topBtn.style.display="block";
-
-}
-
-else{
-
-topBtn.style.display="none";
-
-}
-
-}
-
-
-
-topBtn.onclick=function(){
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-}
-
-
-
-</script>
-  
-
-
-</html>here
-
-<section>
-
-<h2 class="title">
-My Journey
-</h2>
-
-
-<div class="glass timeline">
-
-
-<div class="item">
-
-<h3>🎓 Education</h3>
-
-<p>
-Education
-
-A passionate student, continuously learning, growing, and building skills for a brighter future through dedication and hard work.
-</p>
-
-</div>
-
-
-
-<div class="item">
-
-<h3>💻 Web Design</h3>
-
-<p>
-Creating modern websites with creative ideas and technology.
-</p>
-
-</div>
-
-
-
-<div class="item">
-
-<h3>🚀 Future Goal</h3>
-
-<p>
-My Future
-
-My dream is to become highly successful and financially independent. I want to build a better life through hard work, dedication, and continuous learning. My biggest goal is not only to become wealthy but also to use my success to help people in need, support my family, and make a positive impact on society.
-
-"Success is meaningful when you can share it with others."
-</p>
-
-</div>
-
-
+<!-- এখানে শুধু তোমার ছবি বসাবে -->
 
 </div>
 
 </section>
 
+<!-- About -->
 
+<section id="about">
 
+<h2>About Me</h2>
 
+<div class="about-box">
 
-<section>
+<p>
 
+I am Sahariya Islam Shuvo.
 
-<h2 class="title">
-My Skills
-</h2>
+I love technology, web development,
 
+travelling and creating creative projects.
 
+My dream is to become financially successful
 
-<div class="glass">
+and help many people in the future.
 
+</p>
+
+</div>
+
+</section>
+
+<!-- Bio Data -->
+
+<section class="bio">
+
+<h2>Bio Data</h2>
+
+<div class="card">
+
+<p><b>Name :</b> Sahariya Islam Shuvo</p>
+
+<p><b>Phone :</b> 01791996607</p>
+
+<p><b>Email :</b> Sahariyaislamshuvo469@gmail.com</p>
+
+<p><b>Date Of Birth :</b> 14-06-2008</p>
+
+<p><b>Address :</b> Savar, Katlapur, Dhaka</p>
+
+</div>
+
+</section>
+
+<!-- Education -->
+
+<section class="education">
+
+<h2>Education</h2>
+
+<div class="card">
+
+<h3>SSC Candidate</h3>
+
+<p>
+
+Currently continuing my education and
+
+building my skills in programming,
+
+technology and web development.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Skills -->
+
+<section class="skills">
+
+<h2>My Skills</h2>
 
 <div class="skill">
 
-travelling 
+HTML
 
 <div class="bar">
-<span style="width:95%"></span>
-</div>
+
+<div style="width:95%"></div>
 
 </div>
 
-
+</div>
 
 <div class="skill">
 
-study 
+CSS
 
 <div class="bar">
-<span style="width:90%"></span>
-</div>
+
+<div style="width:90%"></div>
 
 </div>
 
-
-
+</div>
 
 <div class="skill">
 
-graphic design 
+JavaScript
 
 <div class="bar">
-<span style="width:85%"></span>
-</div>
+
+<div style="width:80%"></div>
 
 </div>
 
-
-
-<div class="skill">
-
-Technology
-
-<div class="bar">
-<span style="width:80%"></span>
-</div>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-<section>
-
-<h2 class="title">
-My Gallery
-</h2>
-
-
-<div class="gallery glass">
-
-
-<div class="photo">
-
-<!-- Profile Photo -->
-<div class="profile-photo">
-    <img src="IMG_2272-1-01.jpeg" alt="IMG_2272-1-01.jpeg">
-</div>
-
-<img src="" alt="Gallery Photo">
-
-</div>
-
-
-<div class="photo">
-
-<img src="" alt="Gallery Photo">
-
-</div>
-
-
-<div class="IMG_5274.HEIC">
-
-<img src="" alt="IMG_2272-1-01.jpeg">
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section>
-
-
-<h2 class="title">
-Contact Me
-</h2>
-
-
-<div class="glass contact">
-
-
-<h3>📞 Phone</h3>
-<p>01791996607</p>
-
-
-<h3>✉️ Email</h3>
-<p>Sahariyaislamshuvo469@gmail.com</p>
-
-
-<h3>📍 Location</h3>
-<p>Savar, Dhaka, Bangladesh</p>
-
-
-</div>
-
-
-</section>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shuvo | Travel Journey</title>
-
-  <link rel="stylesheet" href="style.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://unpkg.com/feather-icons"></script>
-</head>
-
-<body>
-
-<div id="particles"></div>
-
-<header>
-
-<h1>🌍 My Travel Journey</h1>
-
-<p>
-Every place I visit becomes a beautiful memory.
-</p>
-
-</header>
-
-<section class="travel-map">
-
-<div class="map-box"> <!-- Travel Route -->
-<svg class="travel-route" viewBox="0 0 900 650">
-
-<path
-d="M760 560
-L720 500
-L690 450
-L650 390
-L630 330
-L610 270
-L560 180
-L500 120
-L450 100"
-
-class="route"/>
-
-</svg>
-
-<!-- Airplane -->
-<div class="plane">
-✈️
-</div>
-    
-
-<img src="images/bd-map.png" class="map">
-
-<div class="marker cox">
-<span>Cox's Bazar</span>
-</div>
-
-<div class="marker bandarban">
-<span>Bandarban</span>
-</div>
-
-<div class="marker rangamati">
-<span>Rangamati</span>
-</div>
-
-<div class="marker chittagong">
-<span>Chittagong</span>
-</div>
-
-<div class="marker sajek">
-<span>Sajek</span>
-</div>
-
-<div class="marker khagra">
-<span>Khagrachhari</span>
-</div>
-
-<div class="marker sylhet">
-<span>Sylhet</span>
-</div>
-
-<div class="marker tanguar">
-<span>Tanguar Haor</span>
-</div>
-
-<div class="marker marayong">
-<span>Marayong Valley</span>
-</div>
-
-<div class="plane">✈</div>
-
-</div>
-
-</section>
-
-<section class="gallery">
-
-<div class="card">
-<img src="images/cox.jpg">
-<h2>Cox's Bazar</h2>
-<p>World's Longest Sea Beach</p>
-</div>
-
-<div class="card">
-<img src="images/bandarban.jpg">
-<h2>Bandarban</h2>
-<p>Mountain Adventure</p>
-</div>
-
-<div class="card">
-<img src="images/rangamati.jpg">
-<h2>Rangamati</h2>
-<p>Beautiful Lake View</p>
-</div>
-
-<div class="card">
-<img src="images/chittagong.jpg">
-<h2>Chittagong</h2>
-<p>Port City</p>
-</div>
-
-<div class="card">
-<img src="images/sajek.jpg">
-<h2>Sajek Valley</h2>
-<p>Cloud Kingdom</p>
-</div>
-
-<div class="card">
-<img src="images/khagrachhari.jpg">
-<h2>Khagrachhari</h2>
-<p>Nature Paradise</p>
-</div>
-
-<div class="card">
-<img src="images/sylhet.jpg">
-<h2>Sylhet</h2>
-<p>Tea Garden</p>
-</div>
-
-<div class="card">
-<img src="images/tanguar-haor.jpg">
-<h2>Tanguar Haor</h2>
-<p>Natural Beauty</p>
-</div>
-
-<div class="card">
-<img src="images/marayong-valley.jpg">
-<h2>Marayong Valley</h2>
-<p>Hidden Beauty</p>
 </div>
 
 </section>
@@ -994,15 +214,5 @@ class="route"/>
 <script src="script.js"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
