@@ -124,3 +124,127 @@ btn.style.transform="scale(1)";
 });
 
 });
+// =============================
+// SCROLL REVEAL ANIMATION
+// =============================
+
+const revealElements = document.querySelectorAll(
+".glass-card,.travel-box,.gallery img,.section-title"
+);
+
+function revealOnScroll(){
+
+    revealElements.forEach(el=>{
+
+        const top = el.getBoundingClientRect().top;
+
+        const screen = window.innerHeight;
+
+        if(top < screen - 100){
+
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0px)";
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealElements.forEach(el=>{
+
+    el.style.opacity="0";
+    el.style.transform="translateY(60px)";
+    el.style.transition="1s";
+
+});
+
+revealOnScroll();
+
+
+// =============================
+// MOUSE GLOW EFFECT
+// =============================
+
+const glow = document.createElement("div");
+
+glow.style.position="fixed";
+glow.style.width="20px";
+glow.style.height="20px";
+glow.style.borderRadius="50%";
+glow.style.background="cyan";
+glow.style.pointerEvents="none";
+glow.style.filter="blur(15px)";
+glow.style.zIndex="99999";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX-10+"px";
+glow.style.top=e.clientY-10+"px";
+
+});
+
+
+// =============================
+// IMAGE HOVER EFFECT
+// =============================
+
+document.querySelectorAll(".gallery img").forEach(img=>{
+
+img.addEventListener("mouseenter",()=>{
+
+img.style.transform="scale(1.08) rotate(2deg)";
+
+});
+
+img.addEventListener("mouseleave",()=>{
+
+img.style.transform="scale(1)";
+
+});
+
+});
+
+
+// =============================
+// ACTIVE MENU
+// =============================
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav ul li a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(sec=>{
+
+const top=window.scrollY;
+const offset=sec.offsetTop-150;
+const height=sec.offsetHeight;
+
+if(top>=offset && top<offset+height){
+
+current=sec.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
