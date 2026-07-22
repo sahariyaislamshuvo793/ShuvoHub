@@ -437,3 +437,11 @@ height:260px;
 }
 
 }
+nav ul li a.active{
+color:#00e5ff;
+text-shadow:0 0 15px cyan;
+}
+
+html{
+scroll-behavior:smooth;
+}
