@@ -351,12 +351,134 @@ My Travel Journey
 Gallery
 </h1>
 
-  <section class="gallery">
-  <img src="images/IMG_2272-1.HEIC" alt="Photo 1">
-  <img src="images/IMG_2272-1-01.jpeg" alt="Photo 2">
-  <img src="images/IMG_20260719_181106_627.jpg" alt="Photo 3">
-  <img src="images/IMG_20260531_005946_024.jpg" alt="Photo 4">
-  </section>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - SHUVO</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #030712; /* Dark Neon Theme Background */
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .gallery-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #00f2fe;
+      text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+      margin-bottom: 30px;
+    }
+
+    /* Modern Responsive Grid Layout */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 3D Glassmorphism Neon Card */
+    .gallery-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                  0 0 10px rgba(0, 242, 254, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      aspect-ratio: 1 / 1; /* Makes cards square */
+      cursor: pointer;
+    }
+
+    /* Image Styling */
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover 3D Pop & Neon Glow Effect */
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #00f2fe;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5),
+                  0 0 20px rgba(0, 242, 254, 0.6);
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Caption Overlay */
+    .card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background: linear-gradient(to top, rgba(3, 7, 18, 0.9), transparent);
+      color: #00f2fe;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .card-caption {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="gallery-title">Gallery</h1>
+
+  <div class="gallery-container">
+    
+    <!-- Item 1 -->
+    <div class="gallery-card">
+      <!-- Image URL ba exact filename din -->
+      <img src="IMG_2272-1.HEIC" alt="Photo 1" onerror="this.src='https://picsum.photos/400/400?random=1'">
+      <div class="card-caption">Photo 1</div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="gallery-card">
+      <img src="IMG_2272-1-01.jpeg" alt="Photo 2" onerror="this.src='https://picsum.photos/400/400?random=2'">
+      <div class="card-caption">Photo 2</div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="gallery-card">
+      <img src="IMG_20260531_005946_139.jpg" alt="Photo 3" onerror="this.src='https://picsum.photos/400/400?random=3'">
+      <div class="card-caption">Photo 3</div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="gallery-card">
+      <img src="IMG_2272-1.HEIC" alt="Photo 4" onerror="this.src='https://picsum.photos/400/400?random=4'">
+      <div class="card-caption">Photo 4</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
 
 </section>
 
