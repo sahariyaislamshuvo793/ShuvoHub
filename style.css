@@ -1,1 +1,188 @@
 
+/* ===== Google Font ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== Header ===== */
+header{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+header h1{
+    font-size:3rem;
+    background:linear-gradient(90deg,#00e5ff,#00ff95);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:15px;
+    color:#cfcfcf;
+    font-size:1.1rem;
+}
+
+/* ===== Map ===== */
+.travel-map{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.map-box{
+    position:relative;
+    width:900px;
+    max-width:100%;
+}
+
+.map{
+    width:100%;
+    filter:drop-shadow(0 0 30px rgba(0,255,255,.4));
+}
+
+/* ===== Glowing Markers ===== */
+.marker{
+    position:absolute;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#00ffff;
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 25px #00ffff,
+        0 0 45px #00ffff;
+    animation:pulse 2s infinite;
+    cursor:pointer;
+}
+
+.marker span{
+    position:absolute;
+    top:-38px;
+    left:-25px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    padding:6px 12px;
+    border-radius:20px;
+    display:none;
+    white-space:nowrap;
+    font-size:12px;
+}
+
+.marker:hover{
+    transform:scale(1.6);
+}
+
+.marker:hover span{
+    display:block;
+}
+
+/* ===== Marker Positions (প্রয়োজনে ঠিক করবে) ===== */
+.cox{bottom:10%;right:12%;}
+.bandarban{bottom:18%;right:16%;}
+.rangamati{bottom:24%;right:18%;}
+.chittagong{bottom:22%;right:12%;}
+.sajek{bottom:31%;right:20%;}
+.khagra{bottom:28%;right:16%;}
+.sylhet{top:20%;right:18%;}
+.tanguar{top:16%;right:25%;}
+.marayong{bottom:26%;right:14%;}
+
+/* ===== Plane ===== */
+.plane{
+    position:absolute;
+    font-size:34px;
+    animation:fly 12s linear infinite;
+    filter:drop-shadow(0 0 10px cyan);
+}
+
+@keyframes fly{
+    0%{
+        left:5%;
+        top:75%;
+        transform:rotate(10deg);
+    }
+    50%{
+        left:55%;
+        top:25%;
+        transform:rotate(-15deg);
+    }
+    100%{
+        left:90%;
+        top:10%;
+        transform:rotate(10deg);
+    }
+}
+
+/* ===== Gallery ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:70px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    overflow:hidden;
+    backdrop-filter:blur(18px);
+    transition:.5s;
+}
+
+.card:hover{
+    transform:translateY(-12px) rotateX(8deg);
+    box-shadow:0 0 35px rgba(0,255,255,.4);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h2{
+    padding:15px 20px 5px;
+}
+
+.card p{
+    padding:0 20px 20px;
+    color:#ccc;
+}
+
+/* ===== Animation ===== */
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.5);
+    }
+}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+
+    .gallery{
+        padding:20px;
+    }
+
+    .plane{
+        font-size:24px;
+    }
+}
+
