@@ -644,3 +644,79 @@ transition:.4s;
 .gallery img:hover{
 transform:scale(1.05);
 }
+
+.hero-profile{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:70px 20px;
+text-align:center;
+}
+
+.profile-ring{
+width:220px;
+height:220px;
+padding:8px;
+border-radius:50%;
+background:linear-gradient(45deg,#00e5ff,#7b2ff7,#ff0080,#00ff88);
+background-size:400% 400%;
+animation:ring 5s linear infinite;
+}
+
+.profile-photo{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #111;
+}
+
+@keyframes ring{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.profile-name{
+color:#fff;
+font-size:38px;
+margin-top:25px;
+font-weight:800;
+}
+
+.profile-bio{
+color:#bdbdbd;
+font-size:18px;
+max-width:600px;
+}
+
+.profile-buttons{
+margin-top:30px;
+display:flex;
+gap:20px;
+}
+
+.profile-buttons a{
+padding:14px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+transition:.4s;
+}
+
+.btn1{
+background:#00e5ff;
+color:#000;
+}
+
+.btn2{
+background:transparent;
+border:2px solid #00e5ff;
+color:#00e5ff;
+}
+
+.profile-buttons a:hover{
+transform:translateY(-6px) scale(1.08);
+box-shadow:0 0 25px cyan;
+}
