@@ -302,3 +302,43 @@ runCounter();
 });
 
 document.querySelectorAll("#stats").forEach(sec=>observer.observe(sec));
+
+// Timeline Animation
+
+const timelineItems=document.querySelectorAll(".timeline-item");
+
+function showTimeline(){
+
+timelineItems.forEach(item=>{
+
+const top=item.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+item.style.opacity="1";
+
+item.style.transform="translateX(0)";
+
+}
+
+});
+
+}
+
+timelineItems.forEach((item,index)=>{
+
+item.style.opacity="0";
+
+item.style.transition="1s";
+
+item.style.transform=index%2===0?
+
+"translateX(-100px)":
+
+"translateX(100px)";
+
+});
+
+window.addEventListener("scroll",showTimeline);
+
+showTimeline();
