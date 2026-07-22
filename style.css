@@ -720,3 +720,45 @@ color:#00e5ff;
 transform:translateY(-6px) scale(1.08);
 box-shadow:0 0 25px cyan;
 }
+
+.profile-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:80px 20px;
+}
+
+.profile-border{
+width:220px;
+height:220px;
+border-radius:50%;
+padding:6px;
+background:conic-gradient(#00e5ff,#7b2ff7,#ff0080,#00ff88,#00e5ff);
+animation:spin 4s linear infinite;
+}
+
+.profile-border img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #111;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.profile-container h1{
+color:#fff;
+font-size:36px;
+margin-top:25px;
+}
+
+.profile-container p{
+color:#bbb;
+font-size:18px;
+}
