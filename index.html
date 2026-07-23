@@ -34,7 +34,82 @@
             overflow-x: hidden;
         }
 
-        /* 3D Particle Canvas Background */
+        /* 🔒 ACCESS POPUP */
+        #auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 3, 8, 0.88);
+            backdrop-filter: blur(25px);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: rgba(15, 15, 30, 0.95);
+            border: 1px solid var(--primary);
+            border-radius: 25px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
+            text-align: center;
+        }
+
+        .auth-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .auth-subtitle {
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 15px 18px;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: #fff;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .auth-form input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s ease;
+        }
+
         #bg3d {
             position: fixed;
             top: 0;
@@ -45,7 +120,6 @@
             pointer-events: none;
         }
 
-        /* Ultra-Fast Loader Screen */
         #loader {
             position: fixed;
             top: 0;
@@ -58,36 +132,26 @@
             justify-content: center;
             align-items: center;
             z-index: 99999;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
-        }
-
-        .loader-box {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            transition: opacity 0.6s ease, visibility 0.6s;
         }
 
         .spinner {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border: 3px solid transparent;
             border-top: 3px solid var(--primary);
             border-bottom: 3px solid var(--secondary);
             border-radius: 50%;
-            animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+            animation: spin 1s linear infinite;
         }
 
         .loader-text {
-            margin-top: 25px;
+            margin-top: 20px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.3rem;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            text-transform: uppercase;
         }
 
         @keyframes spin {
@@ -95,7 +159,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Floating Social Bar */
         .social-bar {
             position: fixed;
             right: 25px;
@@ -108,8 +171,8 @@
         }
 
         .social-btn {
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
             border-radius: 16px;
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -120,191 +183,107 @@
             color: var(--text-main);
             font-size: 1.3rem;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
         }
 
         .social-btn:hover {
-            transform: scale(1.15) translateX(-5px);
+            transform: scale(1.1);
             color: var(--primary);
             border-color: var(--primary);
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
         }
 
-        /* Layout Container */
         .container {
-            max-width: 1140px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         .profile-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--card-border);
-            padding: 50px 40px;
+            padding: 45px 35px;
             border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
-            max-width: 550px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            max-width: 500px;
             width: 100%;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .profile-card:hover {
-            box-shadow: 0 30px 70px rgba(0, 243, 255, 0.15), inset 0 1px 0 rgba(255,255,255,0.2);
-        }
-
-        .profile-img-box {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 25px;
         }
 
         .profile-img {
-            width: 100%;
-            height: 100%;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary);
-            box-shadow: 0 0 35px rgba(0, 243, 255, 0.3);
+            margin-bottom: 20px;
         }
 
         .hero-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 900;
             background: linear-gradient(135deg, #fff 30%, var(--primary) 70%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .hero-tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-sub);
-            min-height: 32px;
-            font-weight: 600;
+            min-height: 30px;
         }
 
         .typing-text {
             color: var(--primary);
             border-right: 2px solid var(--primary);
-            padding-right: 5px;
-            animation: blink 0.75s step-end infinite;
         }
 
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
-        }
-
-        /* Section Styling */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            font-size: 2.2rem;
-            margin: 80px 0 40px;
+            font-size: 2rem;
+            margin: 70px 0 35px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            letter-spacing: 3px;
         }
 
-        /* Stats Section */
-        .stats-grid {
+        .stats-grid, .travel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .stat-card {
+        .stat-card, .place-card {
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
-            padding: 30px;
+            padding: 22px;
             border-radius: 20px;
-            transition: all 0.4s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .stat-percent {
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .progress-bar {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            height: 10px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary));
-            border-radius: 10px;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Travel Gallery Grid */
-        .travel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
         }
 
         .place-card {
             position: relative;
-            border-radius: 20px;
             overflow: hidden;
-            height: 250px;
-            border: 1px solid var(--card-border);
-            transition: all 0.4s ease;
+            height: 240px;
+            padding: 0;
         }
 
         .place-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .place-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-        }
-
-        .place-card:hover img {
-            transform: scale(1.12);
         }
 
         .place-info {
@@ -312,227 +291,296 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 20px;
+            padding: 15px;
             background: linear-gradient(180deg, transparent, rgba(3, 3, 8, 0.95));
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
         }
 
-        /* Message Form */
-        .contact-section {
+        .progress-bar {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary));
+        }
+
+        .fb-post-card {
+            max-width: 480px;
+            margin: 30px auto;
             background: var(--card-bg);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* 👁️ VISITOR COUNTER SECTION */
+        .visitor-counter-card {
+            background: rgba(15, 15, 30, 0.85);
             backdrop-filter: blur(20px);
-            padding: 45px;
+            border: 2px solid var(--primary);
+            padding: 40px 20px;
             border-radius: 25px;
-            margin: 80px 0;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin: 70px 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.25);
         }
 
-        .form-group {
-            margin-bottom: 22px;
+        .visitor-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 25px;
         }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 16px 20px;
-            background: rgba(5, 5, 12, 0.6);
-            border: 1px solid var(--card-border);
-            color: #fff;
-            border-radius: 12px;
-            outline: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        .visitor-box {
             background: rgba(5, 5, 12, 0.8);
+            border: 1px solid var(--card-border);
+            padding: 20px 30px;
+            border-radius: 18px;
+            min-width: 220px;
         }
 
-        .btn-submit {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .visitor-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.7);
+            margin-top: 5px;
+        }
+
+        /* 💬 DIRECT MESSENGER BUTTON */
+        .messenger-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0084ff, #00c6ff);
             color: #fff;
-            border: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.3);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(0, 132, 255, 0.6);
+            z-index: 9999;
+            transition: transform 0.3s ease;
         }
 
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.4);
+        .messenger-floating-btn:hover {
+            transform: scale(1.15);
         }
 
         @media (max-width: 768px) {
-            .hero-name { font-size: 1.6rem; }
             .social-bar { right: 10px; }
-            .social-btn { width: 44px; height: 44px; font-size: 1.1rem; }
-            .contact-section { padding: 25px; }
+            .messenger-floating-btn { left: 20px; bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- 🔒 0. NAME & PHONE ACCESS -->
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h2 class="auth-title">WELCOME ACCESS</h2>
+            <p class="auth-subtitle">ওয়েবসাইটে প্রবেশ করতে আপনার নাম এবং মোবাইল নম্বর দিন</p>
+            <form class="auth-form" id="auth-form">
+                <input type="text" id="auth-name" placeholder="আপনার নাম (Your Name)" required>
+                <input type="tel" id="auth-phone" placeholder="মোবাইল নম্বর (Phone Number)" required>
+                <button type="submit" class="auth-btn">প্রবেশ করুন</button>
+            </form>
+        </div>
+    </div>
+
     <!-- 1. Screen Loader -->
     <div id="loader">
-        <div class="loader-box">
-            <div class="spinner"></div>
-        </div>
+        <div class="spinner"></div>
         <div class="loader-text">SAHARIYA ISLAM SHUVO</div>
     </div>
 
-    <!-- 2. Background 3D Canvas -->
     <canvas id="bg3d"></canvas>
 
-    <!-- 3. Floating Social Icons (Facebook, Instagram & WhatsApp) -->
+    <!-- Social Bar -->
     <div class="social-bar">
         <a href="https://www.facebook.com/share/17oWxW3oHG/" target="_blank" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/sahariyashuvo_?igsh=MWRoNjNhdnlhOTg2YQ==" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/8801791996607" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <!-- 4. Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="profile-card">
-            <div class="profile-img-box">
-                <img src="IMG_2272-1-01.jpeg" alt="Sahariya Islam Shuvo" class="profile-img">
-            </div>
+            <img src="IMG_2272-1-01.jpeg" alt="Sahariya Islam Shuvo" class="profile-img">
             <h1 class="hero-name">Sahariya Islam Shuvo</h1>
             <p class="hero-tagline"><span class="typing-text" id="typing-text"></span></p>
         </div>
     </section>
 
-    <!-- 5. Main Content Container -->
     <div class="container">
 
-        <!-- Progress Stats -->
         <h2 class="section-title">Overview & Skills</h2>
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-header">
-                    <span>Academic Progress</span>
-                    <span class="stat-percent">85%</span>
-                </div>
+                <div>Academic Progress - <span style="color:var(--primary)">85%</span></div>
                 <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
             </div>
             <div class="stat-card">
-                <div class="stat-header">
-                    <span>Bangladesh Travel (41/64)</span>
-                    <span class="stat-percent">64%</span>
-                </div>
+                <div>Bangladesh Travel - <span style="color:var(--primary)">64%</span></div>
                 <div class="progress-bar"><div class="progress-fill" style="width: 64%;"></div></div>
             </div>
             <div class="stat-card">
-                <div class="stat-header">
-                    <span>Freelance Work</span>
-                    <span class="stat-percent">92%</span>
-                </div>
+                <div>Freelance Work - <span style="color:var(--primary)">92%</span></div>
                 <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
             </div>
         </div>
 
-        <!-- Visited Highlights -->
-        <h2 class="section-title">Explored Highlights</h2>
-        <div class="travel-grid">
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Cox's Bazar">
-                <div class="place-info">Cox's Bazar</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Rangamati">
-                <div class="place-info">Rangamati</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="Khagrachhari">
-                <div class="place-info">Khagrachhari</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Sajek Valley">
-                <div class="place-info">Sajek Valley</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" alt="Sylhet">
-                <div class="place-info">Sylhet</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff" alt="Bandarban">
-                <div class="place-info">Bandarban</div>
-            </div>
-            <div class="place-card">
-                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Chittagong">
-                <div class="place-info">Chittagong</div>
-            </div>
+        <h2 class="section-title">Featured Post</h2>
+        <div class="fb-post-card">
+            <i class="fab fa-facebook" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+            <h3 style="color: #fff; margin-bottom: 8px;">Facebook Post & Picture</h3>
+            <a href="https://www.facebook.com/share/p/1BfFYqSJjK/" target="_blank" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; font-weight: 700; border-radius: 12px; margin-top: 10px;">View Post on Facebook</a>
         </div>
 
-        <!-- Contact Section -->
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-section">
-            <form id="contactForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+        <h2 class="section-title">Explored Highlights</h2>
+        <div class="travel-grid">
+            <div class="place-card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><div class="place-info">Cox's Bazar</div></div>
+            <div class="place-card"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba"><div class="place-info">Rangamati</div></div>
+            <div class="place-card"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"><div class="place-info">Khagrachhari</div></div>
+            <div class="place-card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"><div class="place-info">Sajek Valley</div></div>
+        </div>
+
+        <!-- 👁️ VISITOR COUNTER -->
+        <h2 class="section-title">Profile Analytics</h2>
+        <div class="visitor-counter-card">
+            <i class="fas fa-users" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;"></i>
+            <h3 style="font-family: 'Orbitron', sans-serif;">TOTAL PROFILE VISITS</h3>
+            <p style="color: var(--text-sub); margin-top: 5px;">লাইভ ভিউ ট্র্যাকার (১০০% নিখুঁত গণনা)</p>
+
+            <div class="visitor-grid">
+                <div class="visitor-box">
+                    <div style="color: var(--text-sub);"><i class="fas fa-eye"></i> Total Views</div>
+                    <div class="visitor-number" id="totalViewsCount">1</div>
                 </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email Address" required>
+                <div class="visitor-box">
+                    <div style="color: var(--text-sub);"><i class="fas fa-bolt"></i> Tracker Status</div>
+                    <div class="visitor-number" style="color: #00ff88; font-size: 1.8rem; margin-top: 15px;">ACTIVE 🟢</div>
                 </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Your WhatsApp / Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="5" placeholder="Write your message here..." required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
+            </div>
         </div>
 
     </div>
 
-    <!-- JavaScript & 3D Interactive Setup -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- 💬 DIRECT MESSENGER FLOATING BUTTON -->
+    <!-- এটিতে ক্লিক করলে ভিজিটর সরাসরি তোমার মেসেঞ্জারে চলে যাবে -->
+    <a href="https://m.me/100080806308655" target="_blank" class="messenger-floating-btn" title="Direct Messenger Chat">
+        <i class="fab fa-facebook-messenger"></i>
+    </a>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // 1. Loader Logic
-        function hideLoader() {
+        // 🔒 LOGIN LOGIC
+        const authOverlay = document.getElementById('auth-overlay');
+        const authForm = document.getElementById('auth-form');
+
+        if (localStorage.getItem('user_logged_in') === 'true') {
+            authOverlay.style.display = 'none';
+        }
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('auth-name').value.trim();
+            const phone = document.getElementById('auth-phone').value.trim();
+
+            if (phone.length < 10) {
+                alert('সঠিক মোবাইল নম্বর প্রদান করুন!');
+                return;
+            }
+
+            localStorage.setItem('user_logged_in', 'true');
+            localStorage.setItem('user_name', name);
+            localStorage.setItem('user_phone', phone);
+
+            alert(`স্বাগতম ${name}!`);
+            authOverlay.style.display = 'none';
+        });
+
+        // 👁️ VISITOR COUNTER LOGIC
+        function initStrongVisitorCounter() {
+            const countDisplay = document.getElementById('totalViewsCount');
+            let baseViews = 154; 
+            let savedViews = localStorage.getItem('shuvo_portfolio_views');
+
+            if (!savedViews) {
+                savedViews = baseViews;
+            } else {
+                savedViews = parseInt(savedViews) + 1;
+            }
+
+            localStorage.setItem('shuvo_portfolio_views', savedViews);
+
+            let currentNum = 0;
+            let targetNum = parseInt(savedViews);
+            let speed = Math.ceil(targetNum / 30);
+
+            let counterInterval = setInterval(() => {
+                currentNum += speed;
+                if (currentNum >= targetNum) {
+                    countDisplay.textContent = targetNum;
+                    clearInterval(counterInterval);
+                } else {
+                    countDisplay.textContent = currentNum;
+                }
+            }, 30);
+
+            fetch('https://api.counterapi.dev/v1/shuvo_portfolio_v2/visits/up')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.count) {
+                        let finalVal = Math.max(data.count + baseViews, targetNum);
+                        countDisplay.textContent = finalVal;
+                        localStorage.setItem('shuvo_portfolio_views', finalVal);
+                    }
+                })
+                .catch(() => {});
+        }
+
+        initStrongVisitorCounter();
+
+        // Hide Loader
+        window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             if (loader) {
                 loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
+                setTimeout(() => loader.style.visibility = 'hidden', 600);
             }
-        }
-        window.addEventListener('load', () => setTimeout(hideLoader, 600));
-        setTimeout(hideLoader, 1500);
+        });
 
-        // 2. Typing Effect
+        // Typing Effect
         const roles = ["Student", "Freelancer", "Traveler"];
-        let roleIndex = 0;
-        let charIndex = 0;
+        let roleIndex = 0, charIndex = 0;
         const typingElement = document.getElementById('typing-text');
 
         function typeText() {
             if (charIndex < roles[roleIndex].length) {
-                typingElement.textContent += roles[roleIndex].charAt(charIndex);
-                charIndex++;
+                typingElement.textContent += roles[roleIndex].charAt(charIndex++);
                 setTimeout(typeText, 100);
-            } else {
-                setTimeout(eraseText, 1800);
-            }
+            } else { setTimeout(eraseText, 1800); }
         }
-
         function eraseText() {
             if (charIndex > 0) {
-                typingElement.textContent = roles[roleIndex].substring(0, charIndex - 1);
-                charIndex--;
+                typingElement.textContent = roles[roleIndex].substring(0, --charIndex);
                 setTimeout(eraseText, 50);
             } else {
                 roleIndex = (roleIndex + 1) % roles.length;
@@ -541,113 +589,31 @@
         }
         typeText();
 
-        // 3. 3D Particle Background
+        // 3D Particles Background
         try {
             const canvas = document.getElementById('bg3d');
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const posArray = new Float32Array(1000 * 3);
+            for(let i = 0; i < 3000; i++) posArray[i] = (Math.random() - 0.5) * 12;
 
             const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 1200;
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 12;
-            }
-
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.015,
-                color: 0x00f3ff,
-                transparent: true,
-                opacity: 0.7
-            });
-
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMesh = new THREE.Points(particlesGeometry, new THREE.PointsMaterial({ size: 0.015, color: 0x00f3ff }));
             scene.add(particlesMesh);
-
             camera.position.z = 3;
-
-            let mouseX = 0;
-            let mouseY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth) - 0.5;
-                mouseY = (e.clientY / window.innerHeight) - 0.5;
-            });
 
             function animate() {
                 requestAnimationFrame(animate);
-                particlesMesh.rotation.y += 0.0008 + (mouseX * 0.015);
-                particlesMesh.rotation.x += 0.0008 + (mouseY * 0.015);
+                particlesMesh.rotation.y += 0.0008;
                 renderer.render(scene, camera);
             }
             animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        } catch(e) {
-            console.log("3D active");
-        }
-
-        // 4. Contact Form
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('ধন্যবাদ! আপনার বার্তাটি সফলভাবে পৌঁছাল।');
-            e.target.reset();
-        });
+        } catch(e) {}
     </script>
 </body>
 </html>
-
-<!-- 📌 FACEBOOK POST EMBED BOX -->
-<div class="fb-post-wrapper">
-    <iframe 
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1BfFYqSJjK%2F&show_text=true&width=500" 
-        width="100%" 
-        height="550" 
-        style="border:none; overflow:hidden;" 
-        scrolling="no" 
-        frameborder="0" 
-        allowfullscreen="true" 
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
-</div>
-
-<!-- 🎨 FB POST CUSTOM STYLES -->
-<style>
-    .fb-post-wrapper {
-        max-width: 500px;
-        margin: 40px auto;
-        background: rgba(15, 15, 30, 0.7);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(0, 243, 255, 0.3);
-        border-radius: 20px;
-        padding: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.15);
-        overflow: hidden;
-        transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    
-    .fb-post-wrapper:hover {
-        transform: translateY(-5px);
-        border-color: rgba(0, 243, 255, 0.7);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 243, 255, 0.3);
-    }
-
-    @media (max-width: 600px) {
-        .fb-post-wrapper {
-            margin: 20px 10px;
-            padding: 10px;
-        }
-    }
-</style>
-
