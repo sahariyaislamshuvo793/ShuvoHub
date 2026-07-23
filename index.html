@@ -2,57 +2,121 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sahariya Islam Shuvo | Official</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<title>
+Sahariya Islam Shuvo | Official Portfolio
+</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="theme-color" content="#0f172a">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description"
+content="Official Portfolio of Sahariya Islam Shuvo">
+
+<meta name="keywords"
+content="Shuvo,Traveller,Freelancer,Student">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/loading.css">
+
+<link rel="stylesheet"
+href="css/animation.css">
 
 </head>
 
 <body>
 
-<!-- Loading Screen -->
+<!--==================
+LOADING SCREEN
+===================-->
 
 <div id="loader">
 
-<div class="loader-logo">SHUVO</div>
+<div class="bg1"></div>
 
-<div class="loading-bar">
-<span></span>
+<div class="bg2"></div>
+
+<div class="bg3"></div>
+
+<div class="ring"></div>
+
+<div class="ring2"></div>
+
+<div class="ring3"></div>
+
+<h1>
+
+SAHARIYA
+
+<br>
+
+ISLAM
+
+<br>
+
+SHUVO
+
+</h1>
+
+<p>
+
+Student
+
+•
+
+Freelancer
+
+•
+
+Traveller
+
+</p>
+
+<div class="loading-box">
+
+<div class="loading-fill">
+
 </div>
 
-<p>Loading Experience...</p>
+</div>
 
 </div>
 
-<!-- Background -->
+<!--==================
+CURSOR
+===================-->
 
-<div class="bg-animation">
+<div id="cursor"></div>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<div id="cursor2"></div>
 
-</div>
+<!--==================
+MAIN WEBSITE
+===================-->
 
-<!-- Navigation -->
+<div id="main">
 
-<nav>
+<header>
 
 <div class="logo">
 
@@ -60,544 +124,613 @@ SHUVO
 
 </div>
 
-<ul>
+<nav>
 
-<li><a href="#home">Home</a></li>
+<a href="#home">HOME</a>
 
-<li><a href="#about">About</a></li>
+<a href="#about">ABOUT</a>
 
-<li><a href="#travel">Travel</a></li>
+<a href="#travel">TRAVEL</a>
 
-<li><a href="#gallery">Gallery</a></li>
+<a href="#gallery">GALLERY</a>
 
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
-<div class="menu">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
+<a href="#contact">CONTACT</a>
 
 </nav>
 
-<!-- Hero -->
+</header>
+
+<!--==================
+HOME
+===================-->
 
 <section id="home">
 
 <div class="hero-left">
 
-<h3>Hello, I'm</h3>
+<h3>
 
-<h1>Sahariya Islam <span>Shuvo</span></h1>
+WELCOME TO MY WORLD
 
-<h2 class="typing"></h2>
+</h3>
+
+<h1>
+
+SAHARIYA
+
+<br>
+
+ISLAM SHUVO
+
+</h1>
+
+<h2>
+
+Student
+
+<span>|</span>
+
+Freelancer
+
+<span>|</span>
+
+Traveller
+
+</h2>
 
 <p>
 
-Welcome to my premium personal website.
-Traveler • Dreamer • Creator.
+Hello!
+
+I'm Sahariya Islam Shuvo.
+
+I love travelling around Bangladesh,
+
+learning new skills,
+
+meeting new people,
+
+and building creative projects.
 
 </p>
 
-<div class="hero-btn">
+<a href="#about"
+class="btn">
 
-<a href="#about" class="btn1">
 Explore
-</a>
 
-<a href="#contact" class="btn2">
-Contact
 </a>
-
-</div>
 
 </div>
 
 <div class="hero-right">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medium Profile Picture</title>
-  <style>
-    body {
-      background-color: #030712;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-    }
-
-    /* Medium Size Profile Container */
-    .profile-medium {
-      width: 100px;                /* Perfect Medium Size */
-      height: 100px;
-      border-radius: 50%;          /* Gol Shape */
-      overflow: hidden;
-      padding: 3px;                /* Border Gap */
-      background: linear-gradient(135deg, #00f2fe, #4facfe); /* Neon Cyan Gradient Border */
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    /* Image Inside Frame */
-    .profile-medium img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;          /* Picture distortion chara perfectly fit hobe */
-      object-position: center;
-      display: block;
-      background-color: #0b132b;
-    }
-
-    /* Hover Glow Effect */
-    .profile-medium:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Medium Profile Picture -->
-  <div class="profile-medium">
-    <img src="IMG_3164.HEIC" alt="Profile Picture" onerror="this.src='https://picsum.photos/200/200'">
-  </div>
-
-</body>
-</html>
+<img src="images/profile.png"
+alt="Profile">
 
 </div>
 
 </section>
 
-<script src="script.js"></script>
+<!-- =========================
+ABOUT SECTION
+========================= -->
 
-  <script>
-function sendWhatsApp() {
-let name=document.getElementById("name").value;
-let email=document.getElementById("email").value;
-let message=document.getElementById("message").value;
+<section id="about" class="about-section">
 
-let phone="8801791996607";
+    <div class="section-title">
+        <h5>ABOUT ME</h5>
+        <h2>Who is Sahariya Islam Shuvo?</h2>
+        <div class="title-line"></div>
+    </div>
 
-let text=`🌟 New Website Message
+    <div class="about-container">
 
-👤 Name: ${name}
+        <div class="about-image">
 
-📧 Email: ${email}
+            <img src="images/profile.png" alt="Shuvo">
 
-💬 Message:
-${message}`;
+        </div>
 
-window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(text),"_blank");
-}
-</script>
-</body>
-</html>
+        <div class="about-content">
 
-<!-- ABOUT -->
+            <h2>
+                Sahariya Islam Shuvo
+            </h2>
 
-<section id="about">
+            <h4>
+                Student • Freelancer • Traveller
+            </h4>
 
-<div class="glass-card about-info">
+            <p>
 
-<h2>About Me</h2>
+                Hello, I'm Sahariya Islam Shuvo from
+                Katlapur, Savar, Dhaka.
 
-<p>
-Hi! I'm <b>Sahariya Islam Shuvo</b> from Savar, Dhaka, Bangladesh.
-I love travelling, technology and building premium websites.
-My dream is to become successful, financially independent, and help people in the future.
-</p>
+                I love travelling around Bangladesh,
+                exploring beautiful places,
+                learning new skills
+                and building creative projects.
+
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <h3>Name</h3>
+
+                    <p>Sahariya Islam Shuvo</p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <h3>Address</h3>
+
+                    <p>Katlapur, Savar, Dhaka</p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <h3>Phone</h3>
+
+                    <p>01791996607</p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <h3>Email</h3>
+
+                    <p>Sahariyaislamshuvo469@gmail.com</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+EDUCATION
+========================= -->
+
+<section id="education">
+
+    <div class="section-title">
+
+        <h5>EDUCATION</h5>
+
+        <h2>Learning Journey</h2>
+
+        <div class="title-line"></div>
+
+    </div>
+
+    <div class="education-card">
+
+        <div class="edu-icon">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+        </div>
+
+        <div class="edu-text">
+
+            <h3>Student</h3>
+
+            <p>
+
+                I am a passionate student who enjoys
+                learning technology, travelling,
+                photography and freelancing.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+PROFESSION
+========================= -->
+
+<section id="profession">
+
+<div class="section-title">
+
+<h5>MY WORK</h5>
+
+<h2>What I Do</h2>
+
+<div class="title-line"></div>
 
 </div>
 
-<div class="glass-card">
+<div class="service-box">
 
-<h2>Personal Information</h2>
+<div class="service-card">
 
-<p>👤 Name : Sahariya Islam Shuvo</p>
-<p>🎂 Date of Birth : 14-06-2008</p>
-<p>📍 Address : Savar, Dhaka</p>
-<p>📞 Phone : 01791996607</p>
-<p>📧 Email : Sahariyaislamshuvo469@gmail.com</p>
+<i class="fa-solid fa-user
+  <!--=========================
+SKILLS SECTION
+==========================-->
+
+<section id="skills">
+
+<div class="section-title">
+
+<h5>MY SKILLS</h5>
+
+<h2>Professional Progress</h2>
+
+<div class="title-line"></div>
+
+</div>
+
+<div class="skills-container">
+
+<div class="skill-card">
+
+<h3>Study</h3>
+
+<div class="progress">
+
+<div class="progress-fill study"
+style="width:85%;">
+
+<span>85%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Travelling</h3>
+
+<div class="progress">
+
+<div class="progress-fill travel"
+style="width:95%;">
+
+<span>95%</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Freelancing</h3>
+
+<div class="progress">
+
+<div class="progress-fill freelance"
+style="width:70%;">
+
+<span>70%</span>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- TRAVEL -->
-<!-- STATS -->
+<!--=========================
+STATISTICS
+==========================-->
 
 <section id="stats">
 
-<h1 class="section-title">My Statistics</h1>
+<div class="section-title">
 
-<div class="stats-container">
+<h5>MY ACHIEVEMENTS</h5>
 
-<div class="stat-card glass-card">
-<h2 class="counter" data-target="6">0</h2>
-<p>Places Visited</p>
-</div>
+<h2>Journey Statistics</h2>
 
-<div class="stat-card glass-card">
-<h2 class="counter" data-target="50">0</h2>
-<p>Projects Completed</p>
-</div>
-
-<div class="stat-card glass-card">
-<h2 class="counter" data-target="100">0</h2>
-<p>Happy Days</p>
-</div>
-
-<div class="stat-card glass-card">
-<h2 class="counter" data-target="2026">0</h2>
-<p>Journey Started</p>
-</div>
+<div class="title-line"></div>
 
 </div>
 
-</section>
+<div class="stats-grid">
 
-<!-- ACHIEVEMENTS -->
+<div class="stat-box">
 
-<!-- ===== TIMELINE ===== -->
+<h1>41</h1>
 
-<section id="timeline">
+<p>District Visited</p>
 
-<h1 class="section-title">
-My Travel Timeline
-</h1>
-
-<div class="timeline">
-
-<div class="timeline-item left">
-<div class="glass-card">
-<h2>🌊 Cox's Bazar</h2>
-<p>The world's longest natural sea beach.</p>
-</div>
 </div>
 
-<div class="timeline-item right">
-<div class="glass-card">
-<h2>🏔 Bandarban</h2>
-<p>Beautiful mountains and clouds.</p>
-</div>
+<div class="stat-box">
+
+<h1>7+</h1>
+
+<p>Major Tourist Places</p>
+
 </div>
 
-<div class="timeline-item left">
-<div class="glass-card">
-<h2>🌲 Sajek Valley</h2>
-<p>Kingdom of clouds.</p>
-</div>
+<div class="stat-box">
+
+<h1>100+</h1>
+
+<p>Travel Memories</p>
+
 </div>
 
-<div class="timeline-item right">
-<div class="glass-card">
-<h2>🚤 Rangamati</h2>
-<p>Wonderful lake and hills.</p>
-</div>
-</div>
+<div class="stat-box">
 
-<div class="timeline-item left">
-<div class="glass-card">
-<h2>☁ Sylhet</h2>
-<p>Tea gardens and green nature.</p>
-</div>
-</div>
+<h1>∞</h1>
 
-<div class="timeline-item right">
-<div class="glass-card">
-<h2>🏙 Chattogram</h2>
-<p>Port city of Bangladesh.</p>
-</div>
+<p>Dreams Ahead</p>
+
 </div>
 
 </div>
 
 </section>
-<section id="achievement">
 
-<h1 class="section-title">Achievements</h1>
+<!--=========================
+TRAVEL PROGRESS
+==========================-->
 
-<div class="travel-grid">
+<section id="travel-progress">
 
-<div class="glass-card">
-🏆 Passionate Traveler
+<div class="section-title">
+
+<h5>BANGLADESH TOUR</h5>
+
+<h2>Travel Progress</h2>
+
+<div class="title-line"></div>
+
 </div>
 
-<div class="glass-card">
-💻 Personal Website Creator
+<div class="travel-progress-card">
+
+<h3>Visited Districts</h3>
+
+<p>41 / 64 Districts</p>
+
+<div class="progress">
+
+<div class="progress-fill"
+style="width:64%;">
+
+<span>64%</span>
+
 </div>
 
-<div class="glass-card">
-🌍 Bangladesh Explorer
-</div>
-
-<div class="glass-card">
-🚀 Future Entrepreneur
 </div>
 
 </div>
 
 </section>
+  <!-- ==========================
+TRAVEL SHOWCASE
+========================== -->
 
 <section id="travel">
 
-<h1 class="section-title">
-My Travel Journey
-</h1>
+<div class="section-title">
+
+<h5>MY TRAVEL JOURNEY</h5>
+
+<h2>Beautiful Places I Have Visited</h2>
+
+<div class="title-line"></div>
+
+</div>
 
 <div class="travel-grid">
 
-<div class="travel-box">
-<i class="fa-solid fa-mountain"></i>
-<h3>Bandarban</h3>
-</div>
+<!-- Cox's Bazar -->
 
-<div class="travel-box">
-<i class="fa-solid fa-water"></i>
+<div class="travel-card">
+
+<img src="images/cox.jpg" alt="Cox's Bazar">
+
+<div class="travel-info">
+
 <h3>Cox's Bazar</h3>
+
+<p>
+The world's longest natural sea beach.
+A wonderful place filled with beautiful sunsets.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
 </div>
 
-<div class="travel-box">
-<i class="fa-solid fa-tree"></i>
-<h3>Sajek</h3>
 </div>
 
-<div class="travel-box">
-<i class="fa-solid fa-ship"></i>
+</div>
+
+</div>
+
+<!-- Bandarban -->
+
+<div class="travel-card">
+
+<img src="images/bandarban.jpg" alt="Bandarban">
+
+<div class="travel-info">
+
+<h3>Bandarban</h3>
+
+<p>
+Green mountains, waterfalls,
+clouds and unforgettable memories.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Rangamati -->
+
+<div class="travel-card">
+
+<img src="images/rangamati.jpg" alt="Rangamati">
+
+<div class="travel-info">
+
 <h3>Rangamati</h3>
+
+<p>
+Kaptai Lake, hanging bridge,
+and peaceful hill views.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
 </div>
 
-<div class="travel-box">
-<i class="fa-solid fa-cloud"></i>
+</div>
+
+</div>
+
+</div>
+
+<!-- Sajek -->
+
+<div class="travel-card">
+
+<img src="images/sajek.jpg" alt="Sajek">
+
+<div class="travel-info">
+
+<h3>Sajek Valley</h3>
+
+<p>
+The kingdom of clouds.
+One of my favourite destinations.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Sylhet -->
+
+<div class="travel-card">
+
+<img src="images/sylhet.jpg" alt="Sylhet">
+
+<div class="travel-info">
+
 <h3>Sylhet</h3>
+
+<p>
+Tea gardens, Ratargul,
+and endless natural beauty.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
 </div>
 
-<div class="travel-box">
-<i class="fa-solid fa-city"></i>
-<h3>Chattogram</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- Chittagong -->
+
+<div class="travel-card">
+
+<img src="images/chittagong.jpg" alt="Chittagong">
+
+<div class="travel-info">
+
+<h3>Chittagong</h3>
+
+<p>
+A city of hills, sea,
+culture and adventure.
+</p>
+
+<div class="visit-progress">
+
+<div class="visit-fill" style="width:100%;">
+
+100%
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- GALLERY -->
+<script src="js/loading.js"></script>
 
-<section id="gallery">
+<script src="js/script.js"></script>
 
-<h1 class="section-title">
-Gallery
-</h1>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - SHUVO</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #030712; /* Dark Neon Theme Background */
-      color: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding: 20px;
-      min-height: 100vh;
-    }
-
-    .gallery-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #00f2fe;
-      text-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
-      margin-bottom: 30px;
-    }
-
-    /* Modern Responsive Grid Layout */
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* 3D Glassmorphism Neon Card */
-    .gallery-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
-                  0 0 10px rgba(0, 242, 254, 0.2);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      aspect-ratio: 1 / 1; /* Makes cards square */
-      cursor: pointer;
-    }
-
-    /* Image Styling */
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    /* Hover 3D Pop & Neon Glow Effect */
-    .gallery-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: #00f2fe;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5),
-                  0 0 20px rgba(0, 242, 254, 0.6);
-    }
-
-    .gallery-card:hover img {
-      transform: scale(1.1);
-    }
-
-    /* Caption Overlay */
-    .card-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 15px;
-      background: linear-gradient(to top, rgba(3, 7, 18, 0.9), transparent);
-      color: #00f2fe;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-card:hover .card-caption {
-      transform: translateY(0);
-    }
-  </style>
-</head>
-<body>
-
-  <h1 class="gallery-title">Gallery</h1>
-
-  <div class="gallery-container">
-    
-    <!-- Item 1 -->
-    <div class="gallery-card">
-      <!-- Image URL ba exact filename din -->
-      <img src="IMG_4548.HEIC" alt="Photo 1" onerror="this.src='https://picsum.photos/400/400?random=1'">
-      <div class="card-caption">Photo 1</div>
-    </div>
-
-    <!-- Item 2 -->
-    <div class="gallery-card">
-      <img src="IMG_2272-1-01.jpeg" alt="Photo 2" onerror="this.src='https://picsum.photos/400/400?random=2'">
-      <div class="card-caption">Photo 2</div>
-    </div>
-
-    <!-- Item 3 -->
-    <div class="gallery-card">
-      <img src="IMG_20260531_005946_139.jpg" alt="Photo 3" onerror="this.src='https://picsum.photos/400/400?random=3'">
-      <div class="card-caption">Photo 3</div>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="gallery-card">
-      <img src="IMG_2310.HEIC" alt="Photo 4" onerror="this.src='https://picsum.photos/400/400?random=4'">
-      <div class="card-caption">Photo 4</div>
-    </div>
-
-  </div>
+<script src="js/particles.js"></script>
 
 </body>
 </html>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h1 class="section-title">
-Contact Me
-</h1>
-
-<form class="contact-box glass-card" onsubmit="sendWhatsApp(); return false;">
-
-<input type="text" id="name" placeholder="Your Name" required>
-
-<input type="email" id="email" placeholder="Your Email" required>
-
-<textarea id="message" placeholder="Write your message..." required></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
-
-<script>
-function sendWhatsApp() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
-
-    let phone = "8801791996607"; // এখানে তোমার WhatsApp নম্বর (শুরুতে 0 নয়)
-
-    let text =
-`Name: ${name}
-Email: ${email}
-Message: ${message}`;
-
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
-}
-</script>
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="social">
-
-<a href="https://www.facebook.com/share/1CvmzEHwo5/" target="_blank">
-
-<i class="fab fa-facebook"></i>
-
-</a>
-
-<a href="https://www.instagram.com/sahariyashuvo_" target="_blank">
-
-<i class="fab fa-instagram"></i>
-
-</a>
-
-<a href="tel:01791996607">
-
-<i class="fa-solid fa-phone"></i>
-
-</a>
-
-</div>
-
-<p>
-
-© 2026 Sahariya Islam Shuvo | Premium Website
-
-</p>
-
-</footer>
