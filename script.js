@@ -342,3 +342,18 @@ item.style.transform=index%2===0?
 window.addEventListener("scroll",showTimeline);
 
 showTimeline();
+
+let nextBtn = document.querySelector('.custom-slider-container .next');
+let prevBtn = document.querySelector('.custom-slider-container .prev');
+
+if (nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', function() {
+        let items = document.querySelectorAll('.custom-slider-container .item');
+        document.querySelector('.custom-slider-container .slide').appendChild(items[0]);
+    });
+
+    prevBtn.addEventListener('click', function() {
+        let items = document.querySelectorAll('.custom-slider-container .item');
+        document.querySelector('.custom-slider-container .slide').prepend(items[items.length - 1]);
+    });
+}
