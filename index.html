@@ -511,3 +511,98 @@
     </script>
 </body>
 </html>
+    <!-- Three.js CDN (Updated Link) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        // 1. Force Loader to Hide Fast
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        }
+
+        // Window load hone por loader shore jabe (Max 1.5 sec delay)
+        window.addEventListener('load', () => {
+            setTimeout(hideLoader, 1000);
+        });
+
+        // Backup safety: 2 sec er beshi kono obosthatei loader thakbe na
+        setTimeout(hideLoader, 2000);
+
+        // 2. Interactive 3D Particle Canvas Background
+        try {
+            const canvas = document.getElementById('bg3d');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Create Starfield Particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 1200;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 15;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.01,
+                color: 0x00f3ff,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            camera.position.z = 3;
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) - 0.5;
+                mouseY = (e.clientY / window.innerHeight) - 0.5;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particlesMesh.rotation.y += 0.001 + (mouseX * 0.02);
+                particlesMesh.rotation.x += 0.001 + (mouseY * 0.02);
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        } catch (e) {
+            console.log("3D Canvas fallback triggered");
+        }
+
+        // Contact Form Trigger
+        const form = document.getElementById('contactForm');
+        if(form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('ধন্যবাদ! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে।');
+                e.target.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+
