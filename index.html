@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
-    <!-- Icons & Fonts -->
+    <title>Sahariya Islam | Portfolio</title>
+    <!-- Icons & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary: #00f3ff;
             --secondary: #ff0055;
-            --bg-dark: #05050a;
-            --card-bg: rgba(20, 20, 35, 0.7);
-            --text: #ffffff;
+            --accent: #7000ff;
+            --bg-dark: #030308;
+            --card-bg: rgba(15, 15, 30, 0.65);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text-main: #ffffff;
+            --text-sub: #a0a0c0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text);
+            color: var(--text-main);
             overflow-x: hidden;
         }
 
-        /* 3D Particle Background Canvas */
+        /* 3D Particle Canvas Background */
         #bg3d {
             position: fixed;
             top: 0;
@@ -39,9 +42,10 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
+            pointer-events: none;
         }
 
-        /* Loader Screen */
+        /* Ultra-Fast Loader Screen */
         #loader {
             position: fixed;
             top: 0;
@@ -53,28 +57,37 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 99999;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+        }
+
+        .loader-box {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .spinner {
-            width: 70px;
-            height: 70px;
-            border: 4px solid rgba(0, 243, 255, 0.1);
-            border-top: 4px solid var(--primary);
-            border-right: 4px solid var(--secondary);
+            width: 90px;
+            height: 90px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--primary);
+            border-bottom: 3px solid var(--secondary);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
         }
 
         .loader-text {
-            margin-top: 20px;
+            margin-top: 25px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: var(--primary);
-            letter-spacing: 3px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px var(--primary);
         }
 
         @keyframes spin {
@@ -82,43 +95,45 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Floating Social Icons Bar */
+        /* Floating Social Bar */
         .social-bar {
             position: fixed;
-            right: 20px;
+            right: 25px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            z-index: 100;
+            gap: 18px;
+            z-index: 1000;
         }
 
         .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 243, 255, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: var(--text-main);
             font-size: 1.3rem;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .social-btn:hover {
-            transform: scale(1.2);
+            transform: scale(1.15) translateX(-5px);
             color: var(--primary);
-            box-shadow: 0 0 20px var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.4);
         }
 
-        /* Container Layout */
+        /* Layout Container */
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -130,119 +145,166 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         .profile-card {
             background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 30px;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            max-width: 500px;
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
+            max-width: 550px;
             width: 100%;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-card:hover {
+            box-shadow: 0 30px 70px rgba(0, 243, 255, 0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        .profile-img-box {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 25px;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--primary);
-            box-shadow: 0 0 25px var(--primary);
-            margin-bottom: 20px;
+            box-shadow: 0 0 35px rgba(0, 243, 255, 0.3);
         }
 
         .hero-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 70%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
 
         .hero-tagline {
-            font-size: 1.1rem;
-            color: #ccc;
-            min-height: 30px;
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            min-height: 32px;
+            font-weight: 600;
         }
 
-        /* Sections Title */
+        .typing-text {
+            color: var(--primary);
+            border-right: 2px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+
+        /* Section Styling */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            font-size: 2rem;
-            margin: 60px 0 30px;
-            color: var(--primary);
+            font-size: 2.2rem;
+            margin: 80px 0 40px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
-        /* Progress Stats Cards */
+        /* Stats Section */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .stat-card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .stat-percent {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .progress-bar {
             width: 100%;
-            background: #111;
-            height: 12px;
+            background: rgba(255,255,255,0.05);
+            height: 10px;
             border-radius: 10px;
             overflow: hidden;
-            margin-top: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary));
             border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Travel Places Gallery Grid */
+        /* Travel Gallery Grid */
         .travel-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .place-card {
             position: relative;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            height: 220px;
-            border: 1px solid rgba(255,255,255,0.1);
+            height: 250px;
+            border: 1px solid var(--card-border);
+            transition: all 0.4s ease;
         }
 
         .place-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s ease;
+            transition: transform 0.6s ease;
+        }
+
+        .place-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
         }
 
         .place-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .place-info {
@@ -250,60 +312,74 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px;
+            background: linear-gradient(180deg, transparent, rgba(3, 3, 8, 0.95));
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #fff;
+            letter-spacing: 1px;
         }
 
-        /* Contact Section */
+        /* Message Form */
         .contact-section {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 60px 0;
-            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            padding: 45px;
+            border-radius: 25px;
+            margin: 80px 0;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 16px 20px;
+            background: rgba(5, 5, 12, 0.6);
+            border: 1px solid var(--card-border);
             color: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             outline: none;
-            transition: 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 10px var(--primary);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            background: rgba(5, 5, 12, 0.8);
         }
 
         .btn-submit {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: bold;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 800;
             cursor: pointer;
             width: 100%;
             font-size: 1.1rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.3);
         }
 
         .btn-submit:hover {
-            box-shadow: 0 0 25px var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-name { font-size: 1.8rem; }
+            .social-bar { right: 10px; }
+            .social-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+            .contact-section { padding: 25px; }
         }
     </style>
 </head>
@@ -311,17 +387,17 @@
 
     <!-- 1. Screen Loader -->
     <div id="loader">
-        <div class="spinner"></div>
-        <!-- নাম পরিবর্তন করে তোমার নাম লেখো -->
-        <div class="loader-text">RIYAISLAM SHUVO</div>
+        <div class="loader-box">
+            <div class="spinner"></div>
+        </div>
+        <div class="loader-text">SAHARIYA ISLAM</div>
     </div>
 
-    <!-- 2. Interactive 3D Background Canvas -->
+    <!-- 2. Background 3D Canvas -->
     <canvas id="bg3d"></canvas>
 
     <!-- 3. Floating Social Icons -->
     <div class="social-bar">
-        <!-- তোমার সোশ্যাল মিডিয়ার লিংকগুলো বসাবে -->
         <a href="https://facebook.com" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
         <a href="https://instagram.com" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/8801700000000" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
@@ -330,11 +406,13 @@
     <!-- 4. Hero Section -->
     <section class="hero">
         <div class="profile-card">
-            <!-- তোমার ছবির লিংক বসাও -->
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Profile Picture" class="profile-img">
-            <!-- নাম বদলাও -->
-            <h1 class="hero-name">Riyaislam Shuvo</h1>
-            <p class="hero-tagline"><span id="typing-text"></span></p>
+            <div class="profile-img-box">
+                <!-- আপডেটেড ছবি ফাইলনেম -->
+                <img src="IMG_2272-1-01.jpeg" alt="Sahariya Islam" class="profile-img">
+            </div>
+            <!-- আপডেটেড নাম -->
+            <h1 class="hero-name">Sahariya Islam</h1>
+            <p class="hero-tagline"><span class="typing-text" id="typing-text"></span></p>
         </div>
     </section>
 
@@ -345,23 +423,29 @@
         <h2 class="section-title">Overview & Skills</h2>
         <div class="stats-grid">
             <div class="stat-card">
-                <h3>Study</h3>
+                <div class="stat-header">
+                    <span>Academic Progress</span>
+                    <span class="stat-percent">85%</span>
+                </div>
                 <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                <p style="margin-top: 10px;">Progress: 85%</p>
             </div>
             <div class="stat-card">
-                <h3>Travel Bangladesh</h3>
+                <div class="stat-header">
+                    <span>Bangladesh Travel (41/64)</span>
+                    <span class="stat-percent">64%</span>
+                </div>
                 <div class="progress-bar"><div class="progress-fill" style="width: 64%;"></div></div>
-                <p style="margin-top: 10px;">Visited: 41 / 64 Districts (64%)</p>
             </div>
             <div class="stat-card">
-                <h3>Freelancing</h3>
-                <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                <p style="margin-top: 10px;">Client Satisfaction: 90%</p>
+                <div class="stat-header">
+                    <span>Freelance Work</span>
+                    <span class="stat-percent">92%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
             </div>
         </div>
 
-        <!-- Visited Travel Places Gallery -->
+        <!-- Visited Highlights -->
         <h2 class="section-title">Explored Highlights</h2>
         <div class="travel-grid">
             <div class="place-card">
@@ -394,8 +478,8 @@
             </div>
         </div>
 
-        <!-- Message Form -->
-        <h2 class="section-title">Contact Me</h2>
+        <!-- Contact Section -->
+        <h2 class="section-title">Get In Touch</h2>
         <div class="contact-section">
             <form id="contactForm">
                 <div class="form-group">
@@ -420,7 +504,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
-        // 1. Loader Hide Logic (Fast & Reliable)
+        // 1. Loader Logic
         function hideLoader() {
             const loader = document.getElementById('loader');
             if (loader) {
@@ -428,10 +512,10 @@
                 loader.style.visibility = 'hidden';
             }
         }
-        window.addEventListener('load', () => setTimeout(hideLoader, 800));
-        setTimeout(hideLoader, 1500); // Safety backup timer
+        window.addEventListener('load', () => setTimeout(hideLoader, 600));
+        setTimeout(hideLoader, 1500);
 
-        // 2. Typing Effect for Subtitle
+        // 2. Typing Effect
         const roles = ["Student", "Freelancer", "Traveler"];
         let roleIndex = 0;
         let charIndex = 0;
@@ -443,7 +527,7 @@
                 charIndex++;
                 setTimeout(typeText, 100);
             } else {
-                setTimeout(eraseText, 1500);
+                setTimeout(eraseText, 1800);
             }
         }
 
@@ -454,12 +538,12 @@
                 setTimeout(eraseText, 50);
             } else {
                 roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeText, 500);
+                setTimeout(typeText, 400);
             }
         }
         typeText();
 
-        // 3. Three.js Background Particle Animation
+        // 3. 3D Particle Background
         try {
             const canvas = document.getElementById('bg3d');
             const scene = new THREE.Scene();
@@ -470,20 +554,20 @@
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 1000;
+            const particlesCount = 1200;
             const posArray = new Float32Array(particlesCount * 3);
 
             for(let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 15;
+                posArray[i] = (Math.random() - 0.5) * 12;
             }
 
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
             const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.012,
+                size: 0.015,
                 color: 0x00f3ff,
                 transparent: true,
-                opacity: 0.8
+                opacity: 0.7
             });
 
             const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -501,8 +585,8 @@
 
             function animate() {
                 requestAnimationFrame(animate);
-                particlesMesh.rotation.y += 0.001 + (mouseX * 0.01);
-                particlesMesh.rotation.x += 0.001 + (mouseY * 0.01);
+                particlesMesh.rotation.y += 0.0008 + (mouseX * 0.015);
+                particlesMesh.rotation.x += 0.0008 + (mouseY * 0.015);
                 renderer.render(scene, camera);
             }
             animate();
@@ -513,13 +597,13 @@
                 renderer.setSize(window.innerWidth, window.innerHeight);
             });
         } catch(e) {
-            console.log("3D canvas issue bypassed");
+            console.log("3D active");
         }
 
-        // 4. Contact Form Submit Event
+        // 4. Contact Form
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('ধন্যবাদ! আপনার মেসেজটি পেয়েছি।');
+            alert('ধন্যবাদ! আপনার বার্তাটি সফলভাবে পৌঁছাল।');
             e.target.reset();
         });
     </script>
