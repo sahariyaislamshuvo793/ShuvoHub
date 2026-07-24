@@ -983,76 +983,118 @@ font-size:18px;
     color: #000;
 }
 
-/* style.css */
 body {
-    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0f0f1a;
+    color: white;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0;
+    overflow-x: hidden;
 }
 
-/* 1. Scene defines the 3D space */
-.scene {
+/* Container defining 3D Space */
+.carousel-container {
     width: 300px;
     height: 400px;
-    perspective: 1000px; /* Crucial for 3D depth */
-    margin-bottom: 20px;
+    perspective: 1000px;
+    position: relative;
 }
 
-/* 2. The Card object itself */
+/* Rotating Carousel Circle */
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Individual Wrapper position in circle */
+.card-wrapper {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+/* 3D Placement for 4 Cards around origin */
+.card-wrapper:nth-child(1) { transform: rotateY(0deg) translateZ(280px); }
+.card-wrapper:nth-child(2) { transform: rotateY(90deg) translateZ(280px); }
+.card-wrapper:nth-child(3) { transform: rotateY(180deg) translateZ(280px); }
+.card-wrapper:nth-child(4) { transform: rotateY(270deg) translateZ(280px); }
+
+/* The Flip Card element inside carousel */
 .card {
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 1s; /* Smooth flip animation */
-    transform-style: preserve-3d; /* Tells children to be in 3D space */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-/* 3. When the 'is-flipped' class is added, rotate the card */
+/* Click flip active state */
 .card.is-flipped {
     transform: rotateY(180deg);
 }
 
-/* 4. Common face styles */
+/* Card Faces */
 .card__face {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Hide back when front is seen */
     backface-visibility: hidden;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    background: #1a1a2e;
+    border: 1px solid #333;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-/* 5. Front face styling */
-.card__face--front {
-    background: white;
-    color: #333;
-}
-
+/* Front Face */
 .card__face--front img {
     width: 100%;
-    height: 70%;
+    height: 80%;
     object-fit: cover;
+    border-radius: 8px;
 }
 
-/* 6. Back face styling (Must be rotated initially) */
+/* Back Face */
 .card__face--back {
-    background: #4A90E2; /* Blue background for details */
-    color: white;
-    transform: rotateY(180deg); /* Start flipped around */
-    padding: 20px;
-    box-sizing: border-box;
+    background: #16213e;
+    transform: rotateY(180deg);
 }
 
+/* Controls */
+.nav-controls {
+    margin-top: 40px;
+}
+
+button {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0f3460;
+}
