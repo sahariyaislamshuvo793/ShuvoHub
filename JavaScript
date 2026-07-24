@@ -1,1 +1,14 @@
 
+// script.js
+
+// Option 1: Flip on click of the card
+const card = document.getElementById('myCard');
+card.addEventListener('click', function() {
+  card.classList.toggle('is-flipped');
+});
+
+// Option 2: Flip using a separate button function
+function flipCard() {
+    const cardElement = document.getElementById('myCard');
+    cardElement.classList.toggle('is-flipped');
+}
