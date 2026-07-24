@@ -635,40 +635,81 @@
 </div>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Flipping Card</title>
+    <title>3D Carousel Flipping Cards</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Scene container creates the 3D perspective -->
-    <div class="scene">
-        <!-- The actual card element that will flip -->
-        <div class="card" id="myCard">
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
             
-            <!-- Front of the card (Picture) -->
-            <div class="card__face card__face--front">
-                <img src="https://via.placeholder.com/300x400?text=Picture+Side" alt="Card Front">
-                <h3>Front Title</h3>
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card__face card__face--front">
+                        <img src="https://picsum.photos/300/400?random=1" alt="Image 1">
+                        <h3>Nature Card</h3>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <h3>Nature Details</h3>
+                        <p>Beautiful green forest view and nature scene details.</p>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Back of the card (Details) -->
-            <div class="card__face card__face--back">
-                <h3>Card Details</h3>
-                <p>This side contains all the important information about the item.</p>
-                <ul>
-                    <li>Detail 1</li>
-                    <li>Detail 2</li>
-                    <li>Detail 3</li>
-                </ul>
+
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card__face card__face--front">
+                        <img src="https://picsum.photos/300/400?random=2" alt="Image 2">
+                        <h3>City Card</h3>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <h3>City Details</h3>
+                        <p>High rise modern architecture and glowing night life.</p>
+                    </div>
+                </div>
             </div>
-            
+
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card__face card__face--front">
+                        <img src="https://picsum.photos/300/400?random=3" alt="Image 3">
+                        <h3>Ocean Card</h3>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <h3>Ocean Details</h3>
+                        <p>Deep blue ocean waters and calm seaside sunset views.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card__face card__face--front">
+                        <img src="https://picsum.photos/300/400?random=4" alt="Image 4">
+                        <h3>Space Card</h3>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <h3>Space Details</h3>
+                        <p>Galaxies, stars, nebulae and cosmic universe.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <div class="nav-controls">
+        <button onclick="rotateCarousel(-1)">❮ Previous</button>
+        <button onclick="rotateCarousel(1)">Next ❯</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
     <!-- Optional Button to Flip the Card -->
     <button onclick="flipCard()">Flip Card</button>
     
