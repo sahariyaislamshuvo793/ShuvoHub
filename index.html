@@ -634,6 +634,261 @@
     </div>
 </div>
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Memories</title>
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gallery Grid */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            justify-items: center;
+        }
+
+        /* Unique Tour Card */
+        .tour-card {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Blurred / Jafsa Image */
+        .tour-card .blur-bg {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(18px) opacity(0.7);
+            transform: scale(0.9);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        /* Main Round Image */
+        .tour-card .main-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            border: 4px solid transparent;
+            background: linear-gradient(#0f172a, #0f172a) padding-box,
+                        linear-gradient(45deg, #ff6b6b, #4ecdc4) border-box;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        /* Hover Effects */
+        .tour-card:hover .main-img {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(78, 205, 196, 0.4);
+        }
+
+        .tour-card:hover .blur-bg {
+            filter: blur(22px) opacity(0.9);
+            transform: scale(1.1) translateY(10px);
+        }
+
+        /* Modal (Popup) Styling */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: #4ecdc4;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-location {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✈️ My Tour Gallery</h1>
+
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        
+        <!-- Card 1 -->
+        <div class="tour-card" onclick="openModal('https://images.unsplash.com/photo-1507525428034-b723cf961d3e', 'কক্সবাজার সমুদ্র সৈকত', 'চট্টগ্রাম, বাংলাদেশ', 'কক্সবাজারের সমুদ্র সৈকত বিশ্বের দীর্ঘতম প্রাকৃতিক বালুকাময় সমুদ্র সৈকত। সূর্যাস্তের দৃশ্যটি ছিল অসাধারণ!')">
+            <div class="blur-bg" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');"></div>
+            <img class="main-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Cox's Bazar">
+        </div>
+
+        <!-- Card 2 -->
+        <div class="tour-card" onclick="openModal('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b', 'বান্দরবান পর্বতমালা', 'বান্দরবান, বাংলাদেশ', 'পাহাড়ের চূড়া থেকে মেঘ ভেসে যাওয়ার দৃশ্য দেখার অনুভূতিটাই আলাদা। নীলগিরি অভিজ্ঞতা চিরস্মরণীয়।')">
+            <div class="blur-bg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b');"></div>
+            <img class="main-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b" alt="Bandarban">
+        </div>
+
+        <!-- Card 3 -->
+        <div class="tour-card" onclick="openModal('https://images.unsplash.com/photo-1519681393784-d120267933ba', 'শ্রীমঙ্গল চা বাগান', 'মৌলভীবাজার, বাংলাদেশ', 'চারিদিকে শুধু সবুজ আর সবুজ। প্রকৃতির এই প্রশান্তি অন্য কোথাও পাওয়া অসম্ভব!')">
+            <div class="blur-bg" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');"></div>
+            <img class="main-img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Sreemangal">
+        </div>
+
+    </div>
+
+    <!-- Details Modal/Popup -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <img class="modal-img" id="modalImg" src="" alt="Tour Detail">
+            <div class="modal-details">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-location" id="modalLocation"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('tourModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLocation = document.getElementById('modalLocation');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openModal(imgSrc, title, location, desc) {
+            modalImg.src = imgSrc;
+            modalTitle.innerText = title;
+            modalLocation.innerText = '📍 ' + location;
+            modalDesc.innerText = desc;
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Modal-এর বাইরে ক্লিক করলে পপ-আপ বন্ধ হওয়া
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
+
 <footer class="copyright">
     © 2026 Sahariya Islam Shuvo / Personal Website. All Rights Reserved.
 </footer>
