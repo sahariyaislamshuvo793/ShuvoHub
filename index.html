@@ -907,69 +907,62 @@
       <a href="https://www.facebook.com/share/1DMdnZ98SN/">Facebook Page</a>
     </blockquote>
 
-<!-- Real Glowing Bangladesh Map Container -->
+      <!-- Clean Interactive Bangladesh Vector Map -->
 <div class="map-container">
 
-  <!-- Real Map Image with Red Glow Border -->
-  <img src="https://simplemaps.com/static/svg/bd/bd.svg" 
-       alt="Bangladesh Map" 
-       class="bd-glow-map-img">
+  <!-- Inline Vector Map Outline (Always Loads Perfectly) -->
+  <svg viewBox="0 0 600 750" class="bd-real-map-svg">
+    <path d="M 280,30 C 290,20 310,25 320,35 C 330,45 350,30 360,40 C 375,55 385,45 395,65 C 410,75 425,70 435,85 C 445,100 425,120 440,135 C 455,150 430,175 450,190 C 470,205 480,185 495,210 C 510,235 480,260 500,285 C 520,310 500,345 525,370 C 540,390 560,430 570,470 C 580,510 565,550 550,590 C 535,630 520,670 510,710 C 500,720 480,690 470,660 C 460,630 445,610 435,580 C 425,550 410,540 395,520 C 380,500 365,530 350,510 C 335,490 320,530 300,520 C 280,510 265,540 245,520 C 225,500 205,530 185,510 C 165,490 145,510 130,480 C 115,450 135,420 115,390 C 95,360 120,330 100,300 C 80,270 110,240 90,210 C 110,180 130,190 145,160 C 160,130 180,140 200,110 C 220,80 250,90 265,60 Z" 
+          fill="rgba(255, 42, 75, 0.1)" 
+          stroke="#ff2a4b" 
+          stroke-width="3" 
+          style="filter: drop-shadow(0 0 12px #ff2a4b);" />
+  </svg>
 
-  <!-- 10 Main District Pins (Accurate Coordinates) -->
-  
-  <!-- 1. Dhaka -->
+  <!-- 10 District Pins -->
   <div class="pin-point" style="top: 50%; left: 49%;" onclick="openDistrictModal('Dhaka')">
     <div class="pin-marker"></div><span class="pin-label">Dhaka</span>
   </div>
 
-  <!-- 2. Rangpur -->
   <div class="pin-point" style="top: 20%; left: 33%;" onclick="openDistrictModal('Rangpur')">
     <div class="pin-marker"></div><span class="pin-label">Rangpur</span>
   </div>
 
-  <!-- 3. Rajshahi -->
   <div class="pin-point" style="top: 38%; left: 26%;" onclick="openDistrictModal('Rajshahi')">
     <div class="pin-marker"></div><span class="pin-label">Rajshahi</span>
   </div>
 
-  <!-- 4. Sylhet -->
   <div class="pin-point" style="top: 30%; left: 78%;" onclick="openDistrictModal('Sylhet')">
     <div class="pin-marker"></div><span class="pin-label">Sylhet</span>
   </div>
 
-  <!-- 5. Mymensingh -->
   <div class="pin-point" style="top: 34%; left: 52%;" onclick="openDistrictModal('Mymensingh')">
     <div class="pin-marker"></div><span class="pin-label">Mymensingh</span>
   </div>
 
-  <!-- 6. Khulna -->
   <div class="pin-point" style="top: 68%; left: 34%;" onclick="openDistrictModal('Khulna')">
     <div class="pin-marker"></div><span class="pin-label">Khulna</span>
   </div>
 
-  <!-- 7. Barishal -->
   <div class="pin-point" style="top: 68%; left: 50%;" onclick="openDistrictModal('Barishal')">
     <div class="pin-marker"></div><span class="pin-label">Barishal</span>
   </div>
 
-  <!-- 8. Chittagong -->
   <div class="pin-point" style="top: 68%; left: 74%;" onclick="openDistrictModal('Chittagong')">
     <div class="pin-marker"></div><span class="pin-label">Chittagong</span>
   </div>
 
-  <!-- 9. Cox's Bazar -->
   <div class="pin-point" style="top: 84%; left: 81%;" onclick="openDistrictModal('Cox\'s Bazar')">
     <div class="pin-marker"></div><span class="pin-label">Cox's Bazar</span>
   </div>
 
-  <!-- 10. Bandarban -->
   <div class="pin-point" style="top: 76%; left: 83%;" onclick="openDistrictModal('Bandarban')">
     <div class="pin-marker"></div><span class="pin-label">Bandarban</span>
   </div>
 
 </div>
 
-<!-- Style for Glowing Red Map Effect -->
+<!-- Style for Map and Facebook Button Z-Index Fix -->
 <style>
   .map-container {
     position: relative;
@@ -982,18 +975,21 @@
     border-radius: 20px;
     padding: 15px;
     backdrop-filter: blur(10px);
-    overflow: hidden;
   }
 
-  .bd-glow-map-img {
+  .bd-real-map-svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Screenshot-er Red Outline & Glow Effect */
-    filter: drop-shadow(0 0 10px #ff2a4b) drop-shadow(0 0 25px rgba(255, 42, 75, 0.8));
+  }
+
+  /* Facebook Floating Icon Fix (Force Right Side Outside Map) */
+  .fb-float-btn, .social-floating {
+    z-index: 9999 !important;
   }
 </style>
 
+  
 <!-- CSS Styling for Image Map -->
 <style>
   .bd-real-map-img {
