@@ -903,7 +903,316 @@
     data-adapt-container-width="true" 
     data-hide-cover="false" 
     data-show-facepile="true">
+
+      <!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero Gravity Gallery & Custom Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0b0f19;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .header-title {
+      text-align: center;
+      padding: 20px 10px;
+      color: #38bdf8;
+      z-index: 10;
+      position: relative;
+      pointer-events: none;
+    }
+
+    /* =======================================
+       1. FULL SCREEN ZERO GRAVITY FLOATING
+    ======================================= */
+    .float-item {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+      cursor: pointer;
+      z-index: 5;
+      object-fit: cover;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .float-item:hover {
+      border-color: #f43f5e;
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.8);
+    }
+
+    /* =======================================
+       2. MODAL POPUP (Details view)
+    ======================================= */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      border: 1px solid #38bdf8;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+
+    /* =======================================
+       3. UNIQUE BANGLADESH GRAPHIC MAP
+    ======================================= */
+    .map-section {
+      text-align: center;
+      margin: 100px auto 50px;
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 20px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 20px;
+    }
+
+    /* Custom SVG Map styling */
+    .bd-map-svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0px 0px 10px rgba(56, 189, 248, 0.3));
+    }
+
+    /* Map Pin styling */
+    .pin {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #f43f5e;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px #f43f5e;
+      animation: pulse 1.5s infinite;
+    }
+
+    .pin-label {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.85);
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      white-space: nowrap;
+      pointer-events: none;
+      transform: translate(-50%, -30px);
+      border: 1px solid #38bdf8;
+      display: none;
+    }
+
+    .pin:hover + .pin-label, .pin:hover .pin-label {
+      display: block;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.8); }
+      70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-title">
+    <h1>🌌 জিরো গ্র্যাভিটি ওয়ার্ল্ড</h1>
+    <p>ছবিগুলোতে ক্লিক করলে থেমে যাবে এবং ডিটেইলস দেখাবে</p>
+  </div>
+
+  <!-- FLOATING IMAGES (Will be placed dynamically) -->
+  <div id="floating-container"></div>
+
+  <!-- DETAILS MODAL POPUP -->
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="Details">
+      <h3 id="modalTitle" style="color:#38bdf8;"></h3>
+      <p id="modalDesc" style="margin-top:8px; color:#cbd5e1;"></p>
+    </div>
+  </div>
+
+  <!-- UNIQUE VECTOR MAP SECTION -->
+  <div class="map-section">
+    <h2 style="color: #38bdf8;">📍 ভ্রমণ করা স্থানসমূহ (বাংলাদেশ আর্ট ম্যাপ)</h2>
+    
+    <div class="map-container">
+      <!-- Unique Graphic Bangladesh Map (SVG) -->
+      <svg class="bd-map-svg" viewBox="0 0 500 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150,80 L220,50 L320,60 L380,100 L450,150 L420,220 L380,210 L360,260 L400,320 L440,400 L390,480 L320,580 L280,620 L250,550 L200,520 L150,480 L180,400 L120,380 L80,300 L100,200 L60,150 L120,100 Z" 
+              fill="#1e293b" stroke="#38bdf8" stroke-width="3" stroke-dasharray="5 5"/>
+      </svg>
+
+      <!-- Pins placed over the Graphic Map -->
+      <!-- Sylhet Division Places -->
+      <div class="pin" style="top: 22%; left: 78%;" onclick="alert('সিলেট')"><span class="pin-label">সিলেট</span></div>
+      <div class="pin" style="top: 25%; left: 72%;" onclick="alert('জাফলং')"><span class="pin-label">জাফলং</span></div>
+      <div class="pin" style="top: 26%; left: 68%;" onclick="alert('সাদা পাথর')"><span class="pin-label">সাদা পাথর</span></div>
+      <div class="pin" style="top: 30%; left: 70%;" onclick="alert('শ্রীমঙ্গল')"><span class="pin-label">শ্রীমঙ্গল</span></div>
       
+      <!-- Sunamganj Area -->
+      <div class="pin" style="top: 20%; left: 60%;" onclick="alert('টাঙ্গুয়ার হাওর')"><span class="pin-label">টাঙ্গুয়ার হাওর</span></div>
+      <div class="pin" style="top: 18%; left: 62%;" onclick="alert('নীলাদ্রি লেক')"><span class="pin-label">নীলাদ্রি লেক</span></div>
+      <div class="pin" style="top: 21%; left: 63%;" onclick="alert('শিমুল বাগান')"><span class="pin-label">শিমুল বাগান</span></div>
+      <div class="pin" style="top: 17%; left: 61%;" onclick="alert('টেকের ঘাট')"><span class="pin-label">টেকের ঘাট</span></div>
+
+      <!-- Chittagong & Hill Tracts -->
+      <div class="pin" style="top: 52%; left: 72%;" onclick="alert('চট্টগ্রাম')"><span class="pin-label">চট্টগ্রাম</span></div>
+      <div class="pin" style="top: 48%; left: 82%;" onclick="alert('সাজেক ভ্যালি')"><span class="pin-label">সাজেক</span></div>
+      <div class="pin" style="top: 55%; left: 83%;" onclick="alert('রাঙামাটি')"><span class="pin-label">রাঙামাটি</span></div>
+      <div class="pin" style="top: 62%; left: 84%;" onclick="alert('বান্দরবান')"><span class="pin-label">বান্দরবান</span></div>
+      <div class="pin" style="top: 68%; left: 76%;" onclick="alert('কক্সবাজার')"><span class="pin-label">কক্সবাজার</span></div>
+      <div class="pin" style="top: 75%; left: 78%;" onclick="alert('মেরিন ড্রাইভ বেলি')"><span class="pin-label">মেরিন ড্রাইভ</span></div>
+
+      <!-- Southern Part -->
+      <div class="pin" style="top: 82%; left: 52%;" onclick="alert('কুয়াকাটা')"><span class="pin-label">কুয়াকাটা</span></div>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. ZERO GRAVITY PHYSICS ENGINE ---
+    const photos = [
+      { url: 'https://picsum.photos/400/300?random=1', title: 'সাজেক ভ্যালি', desc: 'মেঘের রাজ্য সাজেক ভ্যালিতে কাটানো কিছু দারুণ মুহূর্ত।' },
+      { url: 'https://picsum.photos/400/300?random=2', title: 'কক্সবাজার', desc: 'বিশ্বের দীর্ঘতম সমুদ্র সৈকতে সূর্যাস্ত।' },
+      { url: 'https://picsum.photos/400/300?random=3', title: 'টাঙ্গুয়ার হাওর', desc: 'জোছনা রাতে হাওরের পানির ওপর হাউসবোটের অভিজ্ঞতা।' },
+      { url: 'https://picsum.photos/400/300?random=4', title: 'সাদা পাথর', desc: 'ভোলাগঞ্জের বরফ শীতল পানি আর সাদা পাথরের রূপ।' },
+      { url: 'https://picsum.photos/400/300?random=5', title: 'বান্দরবান', desc: 'পাহাড় আর ঝরনার মেলবন্ধন।' }
+    ];
+
+    const container = document.getElementById('floating-container');
+    const floatElements = [];
+
+    // Initialize floating photos
+    photos.forEach((data) => {
+      const img = document.createElement('img');
+      img.src = data.url;
+      img.className = 'float-item';
+      
+      // Random initial position
+      let posX = Math.random() * (window.innerWidth - 100);
+      let posY = Math.random() * (window.innerHeight - 100);
+      
+      // Random velocity (speed & direction)
+      let vx = (Math.random() - 0.5) * 2;
+      let vy = (Math.random() - 0.5) * 2;
+      let isPaused = false;
+
+      img.style.left = posX + 'px';
+      img.style.top = posY + 'px';
+
+      // Click to pause & show details
+      img.addEventListener('click', () => {
+        isPaused = true; // Floating stops
+        openModal(data.url, data.title, data.desc, () => {
+          isPaused = false; // Resume on close
+        });
+      });
+
+      container.appendChild(img);
+
+      floatElements.push({
+        element: img,
+        x: posX,
+        y: posY,
+        vx: vx,
+        vy: vy,
+        get isPaused() { return isPaused; }
+      });
+    });
+
+    // Animation Loop
+    function animate() {
+      floatElements.forEach(item => {
+        if (!item.isPaused) {
+          item.x += item.vx;
+          item.y += item.vy;
+
+          // Bounce off screen walls
+          if (item.x <= 0 || item.x >= window.innerWidth - 90) item.vx *= -1;
+          if (item.y <= 0 || item.y >= document.body.scrollHeight - 90) item.vy *= -1;
+
+          item.element.style.left = item.x + 'px';
+          item.element.style.top = item.y + 'px';
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // --- 2. MODAL CONTROLLER ---
+    let currentResumeCallback = null;
+
+    function openModal(imgSrc, title, desc, onClosed) {
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('photoModal').style.display = 'flex';
+      currentResumeCallback = onClosed;
+    }
+
+    function closeModal() {
+      document.getElementById('photoModal').style.display = 'none';
+      if (currentResumeCallback) currentResumeCallback();
+    }
+  </script>
+</body>
+</html>
 
 
 
