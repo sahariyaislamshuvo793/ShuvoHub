@@ -906,108 +906,34 @@
     <blockquote cite="https://www.facebook.com/share/1DMdnZ98SN/" class="fb-xfbml-parse-ignore">
       <a href="https://www.facebook.com/share/1DMdnZ98SN/">Facebook Page</a>
     </blockquote>
+<!-- Interactive 64 Districts Bangladesh Map Section -->
+<section class="bd-map-section" id="district-explorer">
+  <h2 class="map-title">Explore 64 Districts of Bangladesh</h2>
+  <p class="map-subtitle">Click on any district on the map or select from the list below</p>
 
-      <!-- Clean Interactive Bangladesh Vector Map -->
-<div class="map-container">
-
-  <!-- Inline Vector Map Outline (Always Loads Perfectly) -->
-  <svg viewBox="0 0 600 750" class="bd-real-map-svg">
-    <path d="M 280,30 C 290,20 310,25 320,35 C 330,45 350,30 360,40 C 375,55 385,45 395,65 C 410,75 425,70 435,85 C 445,100 425,120 440,135 C 455,150 430,175 450,190 C 470,205 480,185 495,210 C 510,235 480,260 500,285 C 520,310 500,345 525,370 C 540,390 560,430 570,470 C 580,510 565,550 550,590 C 535,630 520,670 510,710 C 500,720 480,690 470,660 C 460,630 445,610 435,580 C 425,550 410,540 395,520 C 380,500 365,530 350,510 C 335,490 320,530 300,520 C 280,510 265,540 245,520 C 225,500 205,530 185,510 C 165,490 145,510 130,480 C 115,450 135,420 115,390 C 95,360 120,330 100,300 C 80,270 110,240 90,210 C 110,180 130,190 145,160 C 160,130 180,140 200,110 C 220,80 250,90 265,60 Z" 
-          fill="rgba(255, 42, 75, 0.1)" 
-          stroke="#ff2a4b" 
-          stroke-width="3" 
-          style="filter: drop-shadow(0 0 12px #ff2a4b);" />
-  </svg>
-
-  <!-- 10 District Pins -->
-  <div class="pin-point" style="top: 50%; left: 49%;" onclick="openDistrictModal('Dhaka')">
-    <div class="pin-marker"></div><span class="pin-label">Dhaka</span>
+  <!-- Search Input -->
+  <div class="search-box-wrapper">
+    <input type="text" id="districtSearch" onkeyup="filterDistricts()" placeholder="🔍 Search district name (e.g. Bogura, Sylhet)...">
   </div>
 
-  <div class="pin-point" style="top: 20%; left: 33%;" onclick="openDistrictModal('Rangpur')">
-    <div class="pin-marker"></div><span class="pin-label">Rangpur</span>
+  <!-- Interactive Map Container -->
+  <div class="map-container">
+    <iframe 
+      id="bdMapIframe"
+      src="https://simplemaps.com/custom/country/bd/svg" 
+      style="width: 100%; height: 100%; border: none; filter: drop-shadow(0 0 10px #00f0ff);"
+      title="Bangladesh 64 District Map">
+    </iframe>
   </div>
 
-  <div class="pin-point" style="top: 38%; left: 26%;" onclick="openDistrictModal('Rajshahi')">
-    <div class="pin-marker"></div><span class="pin-label">Rajshahi</span>
-  </div>
-
-  <div class="pin-point" style="top: 30%; left: 78%;" onclick="openDistrictModal('Sylhet')">
-    <div class="pin-marker"></div><span class="pin-label">Sylhet</span>
-  </div>
-
-  <div class="pin-point" style="top: 34%; left: 52%;" onclick="openDistrictModal('Mymensingh')">
-    <div class="pin-marker"></div><span class="pin-label">Mymensingh</span>
-  </div>
-
-  <div class="pin-point" style="top: 68%; left: 34%;" onclick="openDistrictModal('Khulna')">
-    <div class="pin-marker"></div><span class="pin-label">Khulna</span>
-  </div>
-
-  <div class="pin-point" style="top: 68%; left: 50%;" onclick="openDistrictModal('Barishal')">
-    <div class="pin-marker"></div><span class="pin-label">Barishal</span>
-  </div>
-
-  <div class="pin-point" style="top: 68%; left: 74%;" onclick="openDistrictModal('Chittagong')">
-    <div class="pin-marker"></div><span class="pin-label">Chittagong</span>
-  </div>
-
-  <div class="pin-point" style="top: 84%; left: 81%;" onclick="openDistrictModal('Cox\'s Bazar')">
-    <div class="pin-marker"></div><span class="pin-label">Cox's Bazar</span>
-  </div>
-
-  <div class="pin-point" style="top: 76%; left: 83%;" onclick="openDistrictModal('Bandarban')">
-    <div class="pin-marker"></div><span class="pin-label">Bandarban</span>
-  </div>
-
-</div>
-
-<!-- Style for Map and Facebook Button Z-Index Fix -->
-<style>
-  .map-container {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    height: 520px;
-    margin: 0 auto;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(0, 242, 254, 0.3);
-    border-radius: 20px;
-    padding: 15px;
-    backdrop-filter: blur(10px);
-  }
-
-  .bd-real-map-svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* Facebook Floating Icon Fix (Force Right Side Outside Map) */
-  .fb-float-btn, .social-floating {
-    z-index: 9999 !important;
-  }
-</style>
-
-  
-<!-- CSS Styling for Image Map -->
-<style>
-  .bd-real-map-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* Dark Neon Theme Style Overlay */
-    filter: invert(0.9) sepia(1) saturate(5) hue-rotate(145deg) drop-shadow(0 0 10px rgba(0, 240, 255, 0.7));
-  }
-</style>
-  <!-- All 64 Districts List Grid -->
-  <h3 class="all-districts-heading">All 64 Districts</h3>
+  <!-- All 64 Districts Chips List -->
+  <h3 class="all-districts-heading">All 64 Districts List</h3>
   <div class="districts-grid" id="districtsGrid">
-    <!-- Auto-generated by JavaScript -->
+    <!-- JavaScript auto-generates 64 clickable buttons -->
   </div>
 </section>
 
-<!-- Pop-up Details Glass Modal -->
+<!-- Pop-up Details Modal -->
 <div class="district-modal" id="districtModal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeDistrictModal()">&times;</span>
@@ -1017,37 +943,19 @@
   </div>
 </div>
 
-<!-- STYLES (CSS) -->
+<!-- CSS STYLES -->
 <style>
-  /* Force Layout Order */
-  body {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .profile-card, .hero-section, header {
-    order: 1 !important;
-  }
-
   .bd-map-section {
-    order: 2 !important;
     text-align: center;
     padding: 30px 15px;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
-    max-width: 600px;
-    margin: 20px auto;
-  }
-
-  .overview-skills-section, footer, main {
-    order: 3 !important;
+    max-width: 650px;
+    margin: 0 auto;
   }
 
   .map-title {
     font-size: 1.6rem;
-    background: linear-gradient(90deg, #00f2fe, #4facfe);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #00f0ff;
     font-weight: 700;
   }
 
@@ -1062,79 +970,33 @@
     max-width: 350px;
     padding: 10px 18px;
     border-radius: 25px;
-    border: 1px solid #00f2fe;
+    border: 1px solid #00f0ff;
     background: rgba(15, 23, 42, 0.8);
     color: #fff;
     outline: none;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 0.85rem;
   }
 
   .map-container {
     position: relative;
     width: 100%;
-    max-width: 450px;
-    height: 520px;
+    max-width: 500px;
+    height: 550px;
     margin: 0 auto;
     background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(0, 242, 254, 0.3);
+    border: 1px solid rgba(0, 240, 255, 0.3);
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
     backdrop-filter: blur(10px);
     overflow: hidden;
   }
 
-  .bd-svg-map {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.3));
-  }
-
-  /* Pins Styling */
-  .pin-point {
-    position: absolute;
-    cursor: pointer;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-  }
-
-  .pin-marker {
-    width: 12px;
-    height: 12px;
-    background: #00f2fe;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 10px #00f2fe;
-    animation: pulse 1.6s infinite;
-  }
-
-  .pin-label {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.85);
-    color: #38bdf8;
-    padding: 2px 6px;
-    font-size: 0.65rem;
-    border-radius: 4px;
-    white-space: nowrap;
-    border: 1px solid #00f2fe;
-  }
-
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.8); }
-    70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
-  }
-
-  /* 64 District Grid */
+  /* 64 District Buttons Grid */
   .all-districts-heading {
     margin-top: 25px;
     margin-bottom: 12px;
-    color: #38bdf8;
+    color: #00f0ff;
     font-size: 1.1rem;
   }
 
@@ -1152,10 +1014,10 @@
   }
 
   .district-chip {
-    background: rgba(0, 242, 254, 0.1);
-    border: 1px solid rgba(0, 242, 254, 0.3);
+    background: rgba(0, 240, 255, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.3);
     color: #e2e8f0;
-    padding: 5px 10px;
+    padding: 5px 12px;
     font-size: 0.75rem;
     border-radius: 12px;
     cursor: pointer;
@@ -1163,13 +1025,13 @@
   }
 
   .district-chip:hover {
-    background: #00f2fe;
+    background: #00f0ff;
     color: #000;
     font-weight: bold;
-    box-shadow: 0 0 8px #00f2fe;
+    box-shadow: 0 0 10px #00f0ff;
   }
 
-  /* Modal Popup */
+  /* Modal Popup Styling */
   .district-modal {
     display: none;
     position: fixed;
@@ -1183,33 +1045,34 @@
 
   .modal-content {
     background: #0f172a;
-    border: 1px solid #00f2fe;
+    border: 1px solid #00f0ff;
     width: 90%;
-    max-width: 380px;
+    max-width: 400px;
     border-radius: 16px;
-    padding: 18px;
+    padding: 20px;
     position: relative;
     text-align: left;
     color: #fff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
   }
 
   .close-btn {
-    position: absolute; top: 8px; right: 14px; font-size: 22px; color: #a0aec0; cursor: pointer;
+    position: absolute; top: 10px; right: 15px; font-size: 24px; color: #a0aec0; cursor: pointer;
   }
 
-  .close-btn:hover { color: #ff2a74; }
+  .close-btn:hover { color: #ff2a4b; }
 
   .modal-img {
-    width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;
+    width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin-bottom: 12px;
   }
 
-  #modalTitle { color: #00f2fe; margin-bottom: 6px; font-size: 1.3rem; }
+  #modalTitle { color: #00f0ff; margin-bottom: 6px; font-size: 1.3rem; }
   #modalDesc { font-size: 0.85rem; line-height: 1.5; color: #cbd5e1; }
 </style>
 
-<!-- SCRIPTS (JS) -->
+<!-- JAVASCRIPT LOGIC -->
 <script>
-  // All 64 Districts List
+  // List of all 64 districts
   const districts64 = [
     "Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail",
     "Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira",
@@ -1221,7 +1084,7 @@
     "Jamalpur", "Mymensingh", "Netrokona", "Sherpur"
   ];
 
-  // Render 64 Buttons
+  // Render 64 District Buttons
   const gridContainer = document.getElementById('districtsGrid');
   if (gridContainer) {
     districts64.forEach(d => {
@@ -1233,7 +1096,7 @@
     });
   }
 
-  // Filter Function
+  // Search Filter
   function filterDistricts() {
     let val = document.getElementById('districtSearch').value.toLowerCase();
     let chips = document.querySelectorAll('.district-chip');
@@ -1242,10 +1105,11 @@
     });
   }
 
-  // Open Details Modal
+  // Open District Modal with Details & Picture
   function openDistrictModal(distName) {
     document.getElementById('modalTitle').innerText = distName + " District";
-    document.getElementById('modalDesc').innerText = "Welcome to " + distName + "! Explore famous landmarks, local history, travel destinations, and beautiful scenic spots of " + distName + " district.";
+    document.getElementById('modalDesc').innerText = distName + " is a historical and beautiful district of Bangladesh. Click to view its tourist spots, heritage, and regional highlights.";
+    // Dynamic image demo based on district
     document.getElementById('modalImg').src = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500";
     document.getElementById('districtModal').style.display = 'flex';
   }
@@ -1253,7 +1117,8 @@
   function closeDistrictModal() {
     document.getElementById('districtModal').style.display = 'none';
   }
-    </script>
+        </script>
+    
 
 <footer class="copyright">
   <p>© Personal Website. All Rights Reserved / Sahariya Islam Shuvo 2026.</p>
