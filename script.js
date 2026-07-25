@@ -357,3 +357,22 @@ if (nextBtn && prevBtn) {
         document.querySelector('.custom-slider-container .slide').prepend(items[items.length - 1]);
     });
 }
+
+const districtData = {
+
+    dhaka:{
+        image:"assets/images/dhaka.jpg",
+        description:"Capital of Bangladesh."
+    },
+
+    coxsbazar:{
+        image:"assets/images/coxsbazar.jpg",
+        description:"World's longest sea beach."
+    },
+
+    sylhet:{
+        image:"assets/images/sylhet.jpg",
+        description:"Tea gardens and natural beauty."
+    }
+
+};
