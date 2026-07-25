@@ -1071,3 +1071,24 @@ opacity:1;
 footer{
     margin-top:80px;
 }
+
+/* Body/Parent Container ke Flex Matrix banano */
+body {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Profile Section Order = 1 (Sobar Upore) */
+.profile-card, .hero-section, header {
+  order: 1 !important;
+}
+
+/* Bangladesh Map Section Order = 2 (Profile-er Thik Niche) */
+.bd-map-section {
+  order: 2 !important;
+}
+
+/* Baki Overview / Skills / Footer Order = 3 (Map-er Niche) */
+.overview-skills-section, footer, main {
+  order: 3 !important;
+}
