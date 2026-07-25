@@ -907,6 +907,224 @@
       <a href="https://www.facebook.com/share/1DMdnZ98SN/">Facebook Page</a>
     </blockquote>
 
+      <!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>মামা গ্যালারি ও ট্রাভেল ম্যাপ</title>
+  
+  <!-- Leaflet CSS for Bangladesh Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 30px 0 15px;
+      color: #38bdf8;
+    }
+
+    /* =======================================
+       1. ZERO GRAVITY GALLERY STYLES
+    ======================================= */
+    .gallery-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .zero-gravity-card {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+      /* Zero Gravity Float Animation */
+      animation: float 4s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .zero-gravity-card:nth-child(2) { animation-delay: 1s; }
+    .zero-gravity-card:nth-child(3) { animation-delay: 2s; }
+
+    .zero-gravity-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .zero-gravity-card:hover {
+      transform: scale(1.1);
+      border-color: #f43f5e;
+    }
+
+    /* Floating Keyframes */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    /* Modal Popup */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      border: 1px solid #38bdf8;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+
+    /* =======================================
+       2. BANGLADESH MAP STYLES
+    ======================================= */
+    #map {
+      height: 500px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      border-radius: 12px;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ZERO GRAVITY GALLERY SECTION -->
+  <h2>🚀 জিরো গ্র্যাভিটি ফটো গ্যালারি</h2>
+  <div class="gallery-container">
+    <div class="zero-gravity-card" onclick="openModal('https://picsum.photos/400/300?random=1', 'সাজেক ভ্যালি', 'মেঘের উপত্যকা সাজেক ভ্রমণ!')">
+      <img src="https://picsum.photos/150?random=1" alt="Sajek">
+    </div>
+    <div class="zero-gravity-card" onclick="openModal('https://picsum.photos/400/300?random=2', 'কক্সবাজার', 'বিশ্বের দীর্ঘতম সমুদ্র সৈকত!')">
+      <img src="https://picsum.photos/150?random=2" alt="Coxsbazar">
+    </div>
+    <div class="zero-gravity-card" onclick="openModal('https://picsum.photos/400/300?random=3', 'শ্রীমঙ্গল', 'চা বাগানের সবুজ প্রকৃতি!')">
+      <img src="https://picsum.photos/150?random=3" alt="Sreemangal">
+    </div>
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="Details">
+      <h3 id="modalTitle" style="color:#38bdf8;"></h3>
+      <p id="modalDesc" style="margin-top:8px; color:#cbd5e1;"></p>
+    </div>
+  </div>
+
+  <!-- BANGLADESH MAP SECTION -->
+  <h2>📍 আমার ভ্রমণ করা স্থানসমূহ (বাংলাদেশ ম্যাপ)</h2>
+  <div id="map"></div>
+
+  <!-- Leaflet JS for Map -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script>
+    // --- 1. MODAL FUNCTIONS ---
+    function openModal(imgSrc, title, desc) {
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('photoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('photoModal').style.display = 'none';
+    }
+
+    // --- 2. MAP INITIALIZATION ---
+    // Centered around Bangladesh
+    const map = L.map('map').setView([23.6850, 90.3563], 7);
+
+    // OpenStreetMap Layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Locations Array (All Requested Places with Coordinates)
+    const visitedPlaces = [
+      { name: "সাজেক ভ্যালি", lat: 23.3820, lng: 92.2938 },
+      { name: "বান্দরবান", lat: 22.1958, lng: 92.2182 },
+      { name: "রাঙামাটি", lat: 22.6533, lng: 92.1753 },
+      { name: "কক্সবাজার", lat: 21.4272, lng: 91.9702 },
+      { name: "চট্টগ্রাম", lat: 22.3569, lng: 91.7832 },
+      { name: "সিলেট", lat: 24.8949, lng: 91.8687 },
+      { name: "শ্রীমঙ্গল", lat: 24.3065, lng: 91.7296 },
+      { name: "জাফলং", lat: 25.1634, lng: 92.0179 },
+      { name: "সাদা পাথর (ভোলাগঞ্জ)", lat: 25.1524, lng: 91.7523 },
+      { name: "টাঙ্গুয়ার হাওর", lat: 25.1533, lng: 91.0717 },
+      { name: "নীলাদ্রি লেক", lat: 25.1832, lng: 91.2464 },
+      { name: "শিমুল বাগান", lat: 25.1228, lng: 91.2478 },
+      { name: "টেকের ঘাট", lat: 25.1856, lng: 91.2415 },
+      { name: "মেরিন ড্রাইভ রোড  (কক্সবাজার)", lat: 21.3124, lng: 92.0234 },
+      { name: "কুয়াকাটা", lat: 21.8166, lng: 90.1189 }
+    ];
+
+    // Custom Pin Icon
+    const customIcon = L.icon({
+      iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
+      popupAnchor: [0, -28]
+    });
+
+    // Adding Markers for each location
+    visitedPlaces.forEach(place => {
+      L.marker([place.lat, place.lng], { icon: customIcon })
+        .addTo(map)
+        .bindPopup(`<b>📍 ${place.name}</b><br>আমি এখানে ঘুরেছি!`);
+    });
+  </script>
+</body>
+</html>
+
 
 
 
