@@ -909,6 +909,286 @@
   </div>
 </div>
 
+<section class="bd-map-section" id="district-explorer">
+  <h2 class="map-title">Explore 64 Districts of Bangladesh</h2>
+  <p class="map-subtitle">Click pins or search district name to view details & photos</p>
+
+  <div class="search-box-wrapper">
+    <input type="text" id="districtSearch" onkeyup="filterDistricts()" placeholder="🔍 Search district name (e.g. Bogura, Sylhet)...">
+  </div>
+
+  <div class="map-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Bangladesh_location_map.svg" alt="Bangladesh Map" class="bd-map-img">
+
+    <div class="pin-point" style="top: 50%; left: 49%;" onclick="openDistrictModal('Dhaka')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Dhaka</span>
+    </div>
+
+    <div class="pin-point" style="top: 82%; left: 78%;" onclick="openDistrictModal('Cox\'s Bazar')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Cox's Bazar</span>
+    </div>
+
+    <div class="pin-point" style="top: 30%; left: 75%;" onclick="openDistrictModal('Sylhet')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Sylhet</span>
+    </div>
+
+    <div class="pin-point" style="top: 73%; left: 32%;" onclick="openDistrictModal('Khulna')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Sundarbans</span>
+    </div>
+
+    <div class="pin-point" style="top: 25%; left: 35%;" onclick="openDistrictModal('Rangpur')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Rangpur</span>
+    </div>
+
+    <div class="pin-point" style="top: 40%; left: 28%;" onclick="openDistrictModal('Rajshahi')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Rajshahi</span>
+    </div>
+
+    <div class="pin-point" style="top: 72%; left: 82%;" onclick="openDistrictModal('Bandarban')">
+      <div class="pin-marker"></div>
+      <span class="pin-label">Bandarban</span>
+    </div>
+  </div>
+
+  <h3 class="all-districts-heading">All 64 Districts List</h3>
+  <div class="districts-grid" id="districtsGrid">
+    </div>
+</section>
+
+<div class="district-modal" id="districtModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeDistrictModal()">&times;</span>
+    <img id="modalImg" src="" alt="District Image" class="modal-img">
+    <h3 id="modalTitle">District Name</h3>
+    <p id="modalDesc">Details will appear here...</p>
+  </div>
+</div>
+
+<style>
+  .bd-map-section {
+    text-align: center;
+    padding: 30px 15px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .map-title {
+    font-size: 1.6rem;
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+  }
+
+  .map-subtitle {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    margin-bottom: 15px;
+  }
+
+  .search-box-wrapper input {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 1px solid #00f2fe;
+    background: rgba(15, 23, 42, 0.8);
+    color: #fff;
+    outline: none;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    margin: 0 auto;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 20px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+
+  .bd-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(0.9) hue-rotate(180deg) drop-shadow(0 0 8px rgba(0, 242, 254, 0.4));
+  }
+
+  /* Map Pins */
+  .pin-point {
+    position: absolute;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .pin-marker {
+    width: 12px;
+    height: 12px;
+    background: #00f2fe;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px #00f2fe;
+    animation: pulse 1.6s infinite;
+  }
+
+  .pin-label {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #38bdf8;
+    padding: 2px 6px;
+    font-size: 0.65rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    border: 1px solid #00f2fe;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.8); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+  }
+
+  .all-districts-heading {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #38bdf8;
+    font-size: 1.1rem;
+  }
+
+  .districts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .district-chip {
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    color: #e2e8f0;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .district-chip:hover {
+    background: #00f2fe;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 8px #00f2fe;
+  }
+
+  /* Popup Details Modal */
+  .district-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: #0f172a;
+    border: 1px solid #00f2fe;
+    width: 90%;
+    max-width: 380px;
+    border-radius: 16px;
+    padding: 18px;
+    position: relative;
+    text-align: left;
+    color: #fff;
+  }
+
+  .close-btn {
+    position: absolute; top: 8px; right: 14px; font-size: 22px; color: #a0aec0; cursor: pointer;
+  }
+
+  .close-btn:hover { color: #ff2a74; }
+
+  .modal-img {
+    width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;
+  }
+
+  #modalTitle { color: #00f2fe; margin-bottom: 6px; font-size: 1.3rem; }
+  #modalDesc { font-size: 0.85rem; line-height: 1.5; color: #cbd5e1; }
+</style>
+
+<script>
+  // Complete List of All 64 Districts in Bangladesh
+  const districts64 = [
+    "Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail",
+    "Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira",
+    "Bogra", "Joypurhat", "Naogaon", "Natore", "Nawabganj", "Pabna", "Rajshahi", "Sirajganj",
+    "Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon",
+    "Barguna", "Barisal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur",
+    "Bandarban", "Brahmanbaria", "Chandpur", "Chittagong", "Comilla", "Cox's Bazar", "Feni", "Khagrachhari", "Lakshmipur", "Noakhali", "Rangamati",
+    "Habiganj", "Moulvibazar", "Sunamganj", "Sylhet",
+    "Jamalpur", "Mymensingh", "Netrokona", "Sherpur"
+  ];
+
+  // Render 64 District Buttons
+  const gridContainer = document.getElementById('districtsGrid');
+  districts64.forEach(d => {
+    let chip = document.createElement('div');
+    chip.className = 'district-chip';
+    chip.innerText = d;
+    chip.onclick = () => openDistrictModal(d);
+    gridContainer.appendChild(chip);
+  });
+
+  // Filter function for search box
+  function filterDistricts() {
+    let val = document.getElementById('districtSearch').value.toLowerCase();
+    let chips = document.querySelectorAll('.district-chip');
+    chips.forEach(chip => {
+      chip.style.display = chip.innerText.toLowerCase().includes(val) ? "inline-block" : "none";
+    });
+  }
+
+  // Show Details Popup Function
+  function openDistrictModal(distName) {
+    document.getElementById('modalTitle').innerText = distName + " District";
+    document.getElementById('modalDesc').innerText = "Welcome to " + distName + "! Explore famous landmarks, local history, travel destinations, and beautiful scenic spots of " + distName + " district.";
+    
+    // Sample travel image for each district popup
+    document.getElementById('modalImg').src = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500";
+    
+    document.getElementById('districtModal').style.display = 'flex';
+  }
+
+  function closeDistrictModal() {
+    document.getElementById('districtModal').style.display = 'none';
+  }
+</script>
  
 <footer class="copyright">
     © Personal Website. All Rights Reserved/ Sahariya Islam Shuvo 2026.
