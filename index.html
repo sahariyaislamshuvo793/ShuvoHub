@@ -907,16 +907,16 @@
       <a href="https://www.facebook.com/share/1DMdnZ98SN/">Facebook Page</a>
     </blockquote>
 
+<!-- Real Official Vector Bangladesh Map Container -->
 <div class="map-container">
-  <!-- Official High-Resolution Real Bangladesh Vector Map -->
-  <svg viewBox="0 0 600 750" class="bd-svg-map">
-    <image href="https://upload.wikimedia.org/wikipedia/commons/f/f2/Bangladesh_location_map.svg" 
-           x="0" y="0" width="600" height="750" 
-           style="filter: invert(0.9) hue-rotate(180deg) drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));" />
-  </svg>
+  
+  <!-- Direct Working HD Bangladesh Outline Image -->
+  <img src="https://simplemaps.com/static/svg/bd/bd.svg" 
+       alt="Bangladesh Map" 
+       class="bd-real-map-img">
 
-  <!-- Perfectly Placed Pins according to Real Geographical Locations -->
-  <div class="pin-point" style="top: 18%; left: 35%;" onclick="openDistrictModal('Rangpur')">
+  <!-- Map Pins Positioned Accurately -->
+  <div class="pin-point" style="top: 20%; left: 32%;" onclick="openDistrictModal('Rangpur')">
     <div class="pin-marker"></div><span class="pin-label">Rangpur</span>
   </div>
 
@@ -924,11 +924,11 @@
     <div class="pin-marker"></div><span class="pin-label">Rajshahi</span>
   </div>
 
-  <div class="pin-point" style="top: 28%; left: 78%;" onclick="openDistrictModal('Sylhet')">
+  <div class="pin-point" style="top: 26%; left: 76%;" onclick="openDistrictModal('Sylhet')">
     <div class="pin-marker"></div><span class="pin-label">Sylhet</span>
   </div>
 
-  <div class="pin-point" style="top: 48%; left: 50%;" onclick="openDistrictModal('Dhaka')">
+  <div class="pin-point" style="top: 48%; left: 48%;" onclick="openDistrictModal('Dhaka')">
     <div class="pin-marker"></div><span class="pin-label">Dhaka</span>
   </div>
 
@@ -943,8 +943,19 @@
   <div class="pin-point" style="top: 84%; left: 80%;" onclick="openDistrictModal('Cox\'s Bazar')">
     <div class="pin-marker"></div><span class="pin-label">Cox's Bazar</span>
   </div>
+
 </div>
 
+<!-- CSS Styling for Image Map -->
+<style>
+  .bd-real-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Dark Neon Theme Style Overlay */
+    filter: invert(0.9) sepia(1) saturate(5) hue-rotate(145deg) drop-shadow(0 0 10px rgba(0, 240, 255, 0.7));
+  }
+</style>
   <!-- All 64 Districts List Grid -->
   <h3 class="all-districts-heading">All 64 Districts</h3>
   <div class="districts-grid" id="districtsGrid">
