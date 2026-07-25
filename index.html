@@ -922,20 +922,29 @@
   <!-- Interactive Vector Map Container -->
   <div class="map-container">
     <!-- Pure SVG Bangladesh Vector Map (No External Image Needed) -->
-    <svg viewBox="0 0 500 650" class="bd-svg-map">
-      <!-- Bangladesh Outer Border -->
-      <path d="M 210,35 L 240,25 L 260,35 L 280,30 L 300,50 L 320,40 L 340,65 L 325,95 L 345,120 L 330,145 L 360,175 L 385,160 L 400,190 L 375,225 L 430,265 L 415,310 L 435,340 L 410,385 L 420,430 L 405,485 L 385,550 L 360,610 L 345,630 L 335,580 L 310,540 L 290,560 L 265,530 L 240,555 L 220,530 L 195,550 L 165,515 L 140,545 L 120,505 L 135,465 L 105,420 L 125,380 L 95,335 L 115,285 L 85,230 L 120,185 L 110,145 L 145,115 L 170,135 L 195,100 L 180,70 Z" 
-            fill="rgba(0, 240, 255, 0.06)" 
-            stroke="#00f0ff" 
-            stroke-width="2.5" 
-            stroke-dasharray="6,6" />
-      
-      <!-- Division Grid Lines -->
-      <path d="M 180,135 Q 220,180 250,210 T 320,240 M 250,210 L 220,320 M 250,210 L 330,145 M 220,320 L 125,380 M 220,320 L 290,420 M 290,420 L 385,550 M 290,420 L 195,550" 
-            fill="none" 
-            stroke="rgba(0, 240, 255, 0.2)" 
-            stroke-width="1.5" />
-    </svg>
+    
+<svg viewBox="0 0 600 750" class="bd-svg-map">
+  <!-- Real Bangladesh Outline -->
+  <path d="M 280,30 C 290,20 310,25 320,35 C 330,45 350,30 360,40 C 375,55 385,45 395,65 C 410,75 425,70 435,85 C 445,100 425,120 440,135 C 455,150 430,175 450,190 C 470,205 480,185 495,210 C 510,235 480,260 500,285 C 520,310 500,345 525,370 C 540,390 560,430 570,470 C 580,510 565,550 550,590 C 535,630 520,670 510,710 C 500,720 480,690 470,660 C 460,630 445,610 435,580 C 425,550 410,540 395,520 C 380,500 365,530 350,510 C 335,490 320,530 300,520 C 280,510 265,540 245,520 C 225,500 205,530 185,510 C 165,490 145,510 130,480 C 115,450 135,420 115,390 C 95,360 120,330 100,300 C 80,270 110,240 90,210 C 110,180 130,190 145,160 C 160,130 180,140 200,110 C 220,80 250,90 265,60 Z" 
+        fill="rgba(0, 240, 255, 0.08)" 
+        stroke="#00f0ff" 
+        stroke-width="2.5" 
+        stroke-dasharray="6,4"
+        style="filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));" />
+
+  <!-- Division Lines -->
+  <path d="M 200,110 Q 250,180 290,220 T 380,260 M 290,220 L 260,360 M 290,220 L 440,135 M 260,360 L 115,390 M 260,360 L 350,510 M 350,510 L 510,710 M 350,510 L 245,520" 
+        fill="none" 
+        stroke="rgba(0, 240, 255, 0.25)" 
+        stroke-width="1.5" />
+</svg>
+  <div class="pin-point" style="top: 15%; left: 45%;" onclick="openDistrictModal('Rangpur')"><div class="pin-marker"></div><span class="pin-label">Rangpur</span></div>
+<div class="pin-point" style="top: 32%; left: 25%;" onclick="openDistrictModal('Rajshahi')"><div class="pin-marker"></div><span class="pin-label">Rajshahi</span></div>
+<div class="pin-point" style="top: 25%; left: 75%;" onclick="openDistrictModal('Sylhet')"><div class="pin-marker"></div><span class="pin-label">Sylhet</span></div>
+<div class="pin-point" style="top: 45%; left: 48%;" onclick="openDistrictModal('Dhaka')"><div class="pin-marker"></div><span class="pin-label">Dhaka</span></div>
+<div class="pin-point" style="top: 72%; left: 30%;" onclick="openDistrictModal('Sundarbans')"><div class="pin-marker"></div><span class="pin-label">Sundarbans</span></div>
+<div class="pin-point" style="top: 70%; left: 78%;" onclick="openDistrictModal('Bandarban')"><div class="pin-marker"></div><span class="pin-label">Bandarban</span></div>
+<div class="pin-point" style="top: 85%; left: 85%;" onclick="openDistrictModal('Cox\'s Bazar')"><div class="pin-marker"></div><span class="pin-label">Cox's Bazar</span></div>
 
     <!-- Map Pin Points -->
     <div class="pin-point" style="top: 48%; left: 48%;" onclick="openDistrictModal('Dhaka')">
