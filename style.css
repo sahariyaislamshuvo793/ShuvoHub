@@ -1014,3 +1014,50 @@ font-size:18px;
     border-radius:15px;
     display:none;
 }
+/* ===========================
+   District Hover Effect
+=========================== */
+
+#bdMap svg path{
+    fill:#1b2b4b;
+    stroke:#ffffff;
+    stroke-width:1;
+    transition:all .3s ease;
+}
+
+#bdMap svg path:hover{
+    fill:#00e5ff;
+    cursor:pointer;
+    filter:drop-shadow(0 0 12px #00e5ff);
+}
+
+/* Glow Pin */
+
+.pin{
+    width:18px;
+    height:18px;
+    background:#00e5ff;
+    border-radius:50%;
+    position:absolute;
+    animation:pinGlow 1.5s infinite;
+    box-shadow:0 0 15px #00e5ff;
+}
+
+@keyframes pinGlow{
+
+0%{
+transform:scale(1);
+opacity:1;
+}
+
+50%{
+transform:scale(1.5);
+opacity:.7;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
