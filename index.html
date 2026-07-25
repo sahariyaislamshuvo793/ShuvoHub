@@ -909,6 +909,385 @@
   </div>
 </div>
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unique 3D Glass Flip Carousel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #1e1b4b, #090514);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+      letter-spacing: 1px;
+    }
+
+    /* 3D Carousel Container */
+    .carousel-container {
+      width: 280px;
+      height: 380px;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Card Wrapper & 3D Flip setup */
+    .card-wrapper {
+      position: absolute;
+      width: 260px;
+      height: 360px;
+      left: 10px;
+      top: 10px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      border-radius: 20px;
+    }
+
+    /* Flipped State */
+    .card-wrapper.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Front & Back Sides (Glassmorphism) */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                  inset 0 0 15px rgba(255, 255, 255, 0.05);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* FRONT SIDE DESIGN */
+    .card-front .img-box {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .card-front .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-wrapper:hover .card-front .img-box img {
+      transform: scale(1.08);
+    }
+
+    .card-front .caption {
+      margin-top: 10px;
+    }
+
+    .card-front .caption h3 {
+      font-size: 1.2rem;
+      color: #e9d5ff;
+    }
+
+    .card-front .caption p {
+      font-size: 0.85rem;
+      color: #c084fc;
+      margin-top: 4px;
+    }
+
+    .click-hint {
+      font-size: 0.75rem;
+      color: #a855f7;
+      text-align: right;
+      font-style: italic;
+    }
+
+    /* BACK SIDE DESIGN (Flipped Details) */
+    .card-back {
+      transform: rotateY(180deg);
+      background: rgba(15, 10, 30, 0.85);
+      border: 1px solid #c084fc;
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+      justify-content: flex-start;
+      gap: 15px;
+    }
+
+    .card-back h3 {
+      font-size: 1.3rem;
+      color: #38bdf8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
+    .card-back p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    .card-back .btn-back {
+      margin-top: auto;
+      align-self: flex-end;
+      background: #8b5cf6;
+      border: none;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    /* Controls */
+    .controls {
+      margin-top: 40px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid #a855f7;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #a855f7;
+      box-shadow: 0 0 15px #a855f7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ 3D Glassmorphism Cards</h1>
+
+  <div class="carousel-container" id="carouselContainer">
+    <div class="carousel" id="carousel">
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500" alt="Beach">
+            </div>
+            <div class="caption">
+              <h3>Cox's Bazar</h3>
+              <p>Ocean Breeze & Sunset</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Cox's Bazar Details</h3>
+            <p>Cox's Bazar is famous for its long natural sandy beach. Enjoy surfing, local seafood, and breathtaking sunset views!</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500" alt="Mountains">
+            </div>
+            <div class="caption">
+              <h3>Sajek Valley</h3>
+              <p>Cloud Kingdom</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Sajek Valley Details</h3>
+            <p>Experience touchable clouds, green mountain peaks, and serene tribal culture high up in the hills.</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1511497584788-8767611136f6?w=500" alt="Forest">
+            </div>
+            <div class="caption">
+              <h3>Sundarbans</h3>
+              <p>Mangrove Wilderness</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Sundarbans Details</h3>
+            <p>The world's largest mangrove forest. Home to the Royal Bengal Tiger, spotted deer, and winding rivers.</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500" alt="Lake">
+            </div>
+            <div class="caption">
+              <h3>Kaptai Lake</h3>
+              <p>Tranquil Waters</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Kaptai Lake Details</h3>
+            <p>Boat rides along emerald green waters surrounded by peaceful hills and hanging bridges.</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500" alt="Tea Garden">
+            </div>
+            <div class="caption">
+              <h3>Sreemangal</h3>
+              <p>Tea Capital</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Sreemangal Details</h3>
+            <p>Lush green tea gardens stretching to the horizon, rainforest trails, and the famous 7-layer tea.</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper" onclick="toggleFlip(this)">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="img-box">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" alt="Waterfall">
+            </div>
+            <div class="caption">
+              <h3>Jaflong</h3>
+              <p>Stone Kingdom</p>
+            </div>
+            <div class="click-hint">Click for details ↺</div>
+          </div>
+          <div class="card-back">
+            <h3>Jaflong Details</h3>
+            <p>Crystal clear rivers flowing straight from Meghalaya waterfalls, surrounded by tea gardens and hills.</p>
+            <button class="btn-back">Flip Back</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn" onclick="rotate(-1)">❮ Prev</button>
+    <button class="btn" onclick="rotate(1)">Next ❯</button>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const container = document.getElementById('carouselContainer');
+    const cards = document.querySelectorAll('.card-wrapper');
+    const totalCards = cards.length; // 6 cards
+    let currAngle = 0;
+    let autoRotateTimer;
+    let isPaused = false;
+
+    // 3D Math setup for 6 cards
+    const angleStep = 360 / totalCards; // 60 deg each
+    const radius = Math.round((260 / 2) / Math.tan(Math.PI / totalCards)) + 40; // ~300px radius
+
+    // Position 6 cards in a 3D circle
+    cards.forEach((card, i) => {
+      const cardAngle = angleStep * i;
+      card.style.transform = `rotateY(${cardAngle}deg) translateZ(${radius}px)`;
+    });
+
+    // Rotation function
+    function rotate(dir) {
+      currAngle += dir * -angleStep;
+      carousel.style.transform = `translateZ(-${radius}px) rotateY(${currAngle}deg)`;
+    }
+
+    // Auto rotate every 3 seconds
+    function startAutoRotate() {
+      autoRotateTimer = setInterval(() => {
+        if (!isPaused) rotate(1);
+      }, 3000);
+    }
+
+    // Stop rotation on Touch/Hover
+    container.addEventListener('mouseenter', () => isPaused = true);
+    container.addEventListener('mouseleave', () => isPaused = false);
+    container.addEventListener('touchstart', () => isPaused = true);
+    container.addEventListener('touchend', () => {
+      setTimeout(() => isPaused = false, 2000);
+    });
+
+    // Flip Card on Click
+    function toggleFlip(card) {
+      card.classList.toggle('flipped');
+    }
+
+    startAutoRotate();
+  </script>
+
 </body>
 </html>
 
