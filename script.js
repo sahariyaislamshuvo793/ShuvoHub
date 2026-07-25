@@ -376,3 +376,125 @@ const districtData = {
     }
 
 };
+
+// ===============================
+// Bangladesh District Data
+// ===============================
+
+const districtData = {
+
+  dhaka: {
+    name: "Dhaka",
+    image: "assets/images/dhaka.jpg",
+    description: "Capital of Bangladesh.",
+    tourist: [
+      "Lalbagh Fort",
+      "Ahsan Manzil",
+      "Hatirjheel"
+    ],
+    visited: true
+  },
+
+  coxsbazar: {
+    name: "Cox's Bazar",
+    image: "assets/images/coxsbazar.jpg",
+    description: "World's Longest Sea Beach.",
+    tourist: [
+      "Laboni Beach",
+      "Inani Beach",
+      "Himchari",
+      "Marine Drive"
+    ],
+    visited: true
+  },
+
+  bandarban: {
+    name: "Bandarban",
+    image: "assets/images/bandarban.jpg",
+    description: "Land of Hills.",
+    tourist: [
+      "Nilgiri",
+      "Nilachal",
+      "Boga Lake"
+    ],
+    visited: true
+  },
+
+  rangamati: {
+    name: "Rangamati",
+    image: "assets/images/rangamati.jpg",
+    description: "Beautiful Lake District.",
+    tourist: [
+      "Kaptai Lake",
+      "Hanging Bridge"
+    ],
+    visited: true
+  },
+
+  sylhet: {
+    name: "Sylhet",
+    image: "assets/images/sylhet.jpg",
+    description: "Tea Garden Paradise.",
+    tourist: [
+      "Jaflong",
+      "Ratargul",
+      "Bichanakandi"
+    ],
+    visited: true
+  }
+
+};
+
+// ===============================
+// SVG Click System
+// ===============================
+
+window.addEventListener("load", () => {
+
+    const svg = document.querySelector("#bdMap");
+
+    svg.addEventListener("load", () => {
+
+        const svgDoc = svg.contentDocument;
+
+        Object.keys(districtData).forEach(id => {
+
+            const district = svgDoc.getElementById(id);
+
+            if(district){
+
+                district.style.cursor = "pointer";
+
+                district.addEventListener("click", () => {
+
+                    document.querySelector("#districtImage").src =
+                    districtData[id].image;
+
+                    document.querySelector("#districtImage").style.display =
+                    "block";
+
+                    document.querySelector("#districtInfo h3").innerText =
+                    districtData[id].name;
+
+                    document.querySelector("#districtDescription").innerHTML =
+                    `
+                    <b>${districtData[id].description}</b><br><br>
+
+                    <b>Tourist Places</b><br>
+
+                    ${districtData[id].tourist.join("<br>")}
+
+                    <br><br>
+
+                    ${districtData[id].visited ? "✅ Visited" : "❌ Not Visited"}
+                    `;
+
+                });
+
+            }
+
+        });
+
+    });
+
+});
