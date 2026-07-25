@@ -907,44 +907,92 @@
       <a href="https://www.facebook.com/share/1DMdnZ98SN/">Facebook Page</a>
     </blockquote>
 
-<!-- Real Official Vector Bangladesh Map Container -->
+<!-- Real Glowing Bangladesh Map Container -->
 <div class="map-container">
-  
-  <!-- Direct Working HD Bangladesh Outline Image -->
+
+  <!-- Real Map Image with Red Glow Border -->
   <img src="https://simplemaps.com/static/svg/bd/bd.svg" 
        alt="Bangladesh Map" 
-       class="bd-real-map-img">
+       class="bd-glow-map-img">
 
-  <!-- Map Pins Positioned Accurately -->
-  <div class="pin-point" style="top: 20%; left: 32%;" onclick="openDistrictModal('Rangpur')">
-    <div class="pin-marker"></div><span class="pin-label">Rangpur</span>
-  </div>
-
-  <div class="pin-point" style="top: 36%; left: 28%;" onclick="openDistrictModal('Rajshahi')">
-    <div class="pin-marker"></div><span class="pin-label">Rajshahi</span>
-  </div>
-
-  <div class="pin-point" style="top: 26%; left: 76%;" onclick="openDistrictModal('Sylhet')">
-    <div class="pin-marker"></div><span class="pin-label">Sylhet</span>
-  </div>
-
-  <div class="pin-point" style="top: 48%; left: 48%;" onclick="openDistrictModal('Dhaka')">
+  <!-- 10 Main District Pins (Accurate Coordinates) -->
+  
+  <!-- 1. Dhaka -->
+  <div class="pin-point" style="top: 50%; left: 49%;" onclick="openDistrictModal('Dhaka')">
     <div class="pin-marker"></div><span class="pin-label">Dhaka</span>
   </div>
 
-  <div class="pin-point" style="top: 72%; left: 33%;" onclick="openDistrictModal('Sundarbans')">
-    <div class="pin-marker"></div><span class="pin-label">Sundarbans</span>
+  <!-- 2. Rangpur -->
+  <div class="pin-point" style="top: 20%; left: 33%;" onclick="openDistrictModal('Rangpur')">
+    <div class="pin-marker"></div><span class="pin-label">Rangpur</span>
   </div>
 
-  <div class="pin-point" style="top: 72%; left: 82%;" onclick="openDistrictModal('Bandarban')">
-    <div class="pin-marker"></div><span class="pin-label">Bandarban</span>
+  <!-- 3. Rajshahi -->
+  <div class="pin-point" style="top: 38%; left: 26%;" onclick="openDistrictModal('Rajshahi')">
+    <div class="pin-marker"></div><span class="pin-label">Rajshahi</span>
   </div>
 
-  <div class="pin-point" style="top: 84%; left: 80%;" onclick="openDistrictModal('Cox\'s Bazar')">
+  <!-- 4. Sylhet -->
+  <div class="pin-point" style="top: 30%; left: 78%;" onclick="openDistrictModal('Sylhet')">
+    <div class="pin-marker"></div><span class="pin-label">Sylhet</span>
+  </div>
+
+  <!-- 5. Mymensingh -->
+  <div class="pin-point" style="top: 34%; left: 52%;" onclick="openDistrictModal('Mymensingh')">
+    <div class="pin-marker"></div><span class="pin-label">Mymensingh</span>
+  </div>
+
+  <!-- 6. Khulna -->
+  <div class="pin-point" style="top: 68%; left: 34%;" onclick="openDistrictModal('Khulna')">
+    <div class="pin-marker"></div><span class="pin-label">Khulna</span>
+  </div>
+
+  <!-- 7. Barishal -->
+  <div class="pin-point" style="top: 68%; left: 50%;" onclick="openDistrictModal('Barishal')">
+    <div class="pin-marker"></div><span class="pin-label">Barishal</span>
+  </div>
+
+  <!-- 8. Chittagong -->
+  <div class="pin-point" style="top: 68%; left: 74%;" onclick="openDistrictModal('Chittagong')">
+    <div class="pin-marker"></div><span class="pin-label">Chittagong</span>
+  </div>
+
+  <!-- 9. Cox's Bazar -->
+  <div class="pin-point" style="top: 84%; left: 81%;" onclick="openDistrictModal('Cox\'s Bazar')">
     <div class="pin-marker"></div><span class="pin-label">Cox's Bazar</span>
   </div>
 
+  <!-- 10. Bandarban -->
+  <div class="pin-point" style="top: 76%; left: 83%;" onclick="openDistrictModal('Bandarban')">
+    <div class="pin-marker"></div><span class="pin-label">Bandarban</span>
+  </div>
+
 </div>
+
+<!-- Style for Glowing Red Map Effect -->
+<style>
+  .map-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 520px;
+    margin: 0 auto;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 20px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+
+  .bd-glow-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Screenshot-er Red Outline & Glow Effect */
+    filter: drop-shadow(0 0 10px #ff2a4b) drop-shadow(0 0 25px rgba(255, 42, 75, 0.8));
+  }
+</style>
 
 <!-- CSS Styling for Image Map -->
 <style>
