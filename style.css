@@ -1092,3 +1092,13 @@ body {
 .overview-skills-section, footer, main {
   order: 3 !important;
 }
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.blue-tick {
+  vertical-align: middle;
+}
