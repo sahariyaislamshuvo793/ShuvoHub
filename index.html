@@ -911,23 +911,20 @@
     <path fill="#1877F2" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7l-3.8-3.8 1.4-1.4 2.4 2.4 6-6 1.4 1.4-7.4 7.4z"/>
   </svg>
 </div>
-<!-- Floating Facebook Post Popup -->
-<div id="fb-popup" style="position: fixed; bottom: 20px; left: 20px; width: 320px; max-height: 450px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 999999; overflow: hidden; font-family: Arial, sans-serif;">
+
+      <!-- Glassmorphic Floating Facebook Post Box -->
+<div id="fb-popup" style="position: fixed !important; bottom: 15px !important; left: 15px !important; width: 250px !important; background: rgba(255, 255, 255, 0.15) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; border-radius: 16px !important; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important; z-index: 999999 !important; overflow: hidden !important; font-family: sans-serif !important;">
   
-  <!-- Header Bar with Close (X) Button -->
-  <div style="background: #1877F2; color: #ffffff; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: bold;">
+  <!-- Header Bar -->
+  <div style="background: rgba(24, 119, 242, 0.6) !important; backdrop-filter: blur(8px) !important; color: #ffffff !important; padding: 6px 10px !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-size: 11px !important; font-weight: bold !important;">
     <span>Facebook Post</span>
-    <button onclick="document.getElementById('fb-popup').style.display='none'" style="background: none; border: none; color: #ffffff; font-size: 20px; cursor: pointer; line-height: 1;">&times;</button>
+    <button onclick="document.getElementById('fb-popup').style.display='none'" style="background: none !important; border: none !important; color: #ffffff !important; font-size: 18px !important; cursor: pointer !important; line-height: 1 !important; padding: 0 !important;">&times;</button>
   </div>
 
-  <!-- Embed Code Container -->
-  <div style="padding: 5px; max-height: 400px; overflow-y: auto;">
+  <!-- Embed Post Content -->
+  <div style="padding: 4px !important; max-height: 300px !important; overflow-y: auto !important;">
     
-    <!-- ===== ফেসবুক থেকে কপি করা Embed Code-টি ঠিক নিচে পেস্ট করো ===== -->
-    
-    <iframe src="https://www.instagram.com/p/DbJWWUcmwwW/?igsh=dGd4bTZ3dm0yc2Qw" width="100%" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-
-    <!-- ======================================================= -->
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1LPj26GnYu%2F&show_text=true&width=240" width="100%" height="280" style="border:none;overflow:hidden;border-radius:10px" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
   </div>
 </div>
