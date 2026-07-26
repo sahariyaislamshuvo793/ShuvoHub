@@ -1102,3 +1102,86 @@ body {
 .blue-tick {
   vertical-align: middle;
 }
+/* ভাসমান বক্সের মূল স্টাইল */
+.floating-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* ডানে চাইলে right: 20px; দাও */
+  width: 280px;
+  background: linear-gradient(135deg, #7b2cbf, #9d4edd); /* ছবির মতো বেগুনি কালার */
+  color: #ffffff;
+  padding: 20px 15px 15px 15px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 9999; /* যেন সব লেখার ওপরে ভেসে থাকে */
+  font-family: Arial, sans-serif;
+  animation: popupSlide 0.5s ease-out;
+}
+
+/* অফার ব্যাজ */
+.offer-tag {
+  background-color: #ffcc00;
+  color: #000;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.popup-content h3 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.popup-content p {
+  font-size: 12px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* বাটন স্টাইল */
+.popup-btn {
+  display: block;
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.popup-btn:hover {
+  background-color: #222222;
+}
+
+/* ক্রস (X) বাটন */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* হালকা অ্যানিমেশন */
+@keyframes popupSlide {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
