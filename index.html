@@ -926,18 +926,137 @@
     
     <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fp%2F1LPj26GnYu%2F&show_text=true&width=240" width="100%" height="280" style="border:none;overflow:hidden;border-radius:10px" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
-  </div>
-</div>
-<section class="premium-gallery">
-  <div class="photo-card">
-    <img src="images/profile.jpg" alt="Profile">
-    <div class="photo-info">
-      <h3>Sahariya Islam Shuvo</h3>
-      <p>Traveler • Student • Freelancer</p>
+  <!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unique Polaroid Gallery</title>
+  <style>
+    /* বেসিক পেজ স্টাইলিং */
+    body {
+      background-color: #f4f1ea;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* গ্যালারি কন্টেইনার */
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1100px;
+    }
+
+    /* পোলারয়েড কার্ড স্টাইল */
+    .polaroid-card {
+      background: #fff;
+      padding: 15px 15px 25px 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      width: 240px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .polaroid-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .caption {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #555;
+    }
+
+    /* ডাইনামিক টিল্ট / এলোমেলো বাঁকা ইফেক্ট */
+    .polaroid-card:nth-child(odd) {
+      transform: rotate(-3deg);
+    }
+
+    .polaroid-card:nth-child(even) {
+      transform: rotate(4deg);
+    }
+
+    .polaroid-card:nth-child(3n) {
+      transform: rotate(-5deg);
+    }
+
+    .polaroid-card:nth-child(5n) {
+      transform: rotate(2deg);
+    }
+
+    /* মাউস হভার (Hover) ইফেক্ট */
+    .polaroid-card:hover {
+      transform: scale(1.15) rotate(0deg);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.25);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Photo Gallery</h1>
+
+  <div class="gallery-container">
+    <!-- কার্ড ১ -->
+    <div class="polaroid-card">
+      <img src="https://picsum.photos/300/350?random=1" alt="Gallery Image 1">
+      <div class="caption">Memory #01</div>
+    </div>
+
+    <!-- কার্ড ২ -->
+    <div class="polaroid-card">
+      <img src="https://picsum.photos/300/350?random=2" alt="Gallery Image 2">
+      <div class="caption">Nature Vibe</div>
+    </div>
+
+    <!-- কার্ড ৩ -->
+    <div class="polaroid-card">
+      <img src="https://picsum.photos/300/350?random=3" alt="Gallery Image 3">
+      <div class="caption">City Lights</div>
+    </div>
+
+    <!-- কার্ড ৪ -->
+    <div class="polaroid-card">
+      <img src="https://picsum.photos/300/350?random=4" alt="Gallery Image 4">
+      <div class="caption">Aesthetic View</div>
+    </div>
+
+    <!-- কার্ড ৫ -->
+    <div class="polaroid-card">
+      <img src="IMG_2272-1-01.jpeg" alt="Gallery Image 5">
+      <div class="caption">Sunset Stories</div>
+    </div>
+
+    <!-- কার্ড ৬ -->
+    <div class="polaroid-card">
+      <img src="https://picsum.photos/300/350?random=6" alt="Gallery Image 6">
+      <div class="caption">Golden Hour</div>
     </div>
   </div>
-</section>
-  
+
+</body>
+</html>
 
    
 
