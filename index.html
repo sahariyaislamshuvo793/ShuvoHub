@@ -912,6 +912,160 @@
   </svg>
 </div>
 
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider Web Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050508;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: #fff;
+        }
+
+        #webCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .frame {
+            position: absolute;
+            z-index: 2;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.8);
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s, box-shadow 0.3s;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .frame:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.9), 0 0 10px #fff;
+            border-color: #e50914;
+        }
+
+        .frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="webCanvas"></canvas>
+
+    <!-- Picture gulo -->
+    <div class="frame" id="pic1" style="width: 200px; height: 150px;">
+        <img src="https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?auto=format&fit=crop&w=400&q=80" alt="Spider-Man 1">
+    </div>
+    <div class="frame" id="pic2" style="width: 250px; height: 180px;">
+        <img src="https://images.unsplash.com/photo-1635863138275-d9b33299680b?auto=format&fit=crop&w=500&q=80" alt="Spider-Man 2">
+    </div>
+    <div class="frame" id="pic3" style="width: 180px; height: 220px;">
+        <img src="https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?auto=format&fit=crop&w=400&q=80" alt="Spider-Man 3">
+    </div>
+    <div class="frame" id="pic4" style="width: 220px; height: 220px;">
+        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=400&q=80" alt="Spider-Man 4">
+    </div>
+
+    <script>
+        const canvas = document.getElementById('webCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        function getNodes() {
+            return [
+                { x: width * 0.25, y: height * 0.35, el: document.getElementById('pic1') },
+                { x: width * 0.65, y: height * 0.25, el: document.getElementById('pic2') },
+                { x: width * 0.35, y: height * 0.70, el: document.getElementById('pic3') },
+                { x: width * 0.70, y: height * 0.65, el: document.getElementById('pic4') }
+            ];
+        }
+
+        let nodes = getNodes();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            nodes = getNodes();
+        });
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.beginPath();
+            ctx.arc(width / 2, height / 2, Math.max(width, height) * 0.8, 0, Math.PI * 2);
+            ctx.strokeStyle = "rgba(255,255,255,0.15)";
+            ctx.lineWidth = 1;
+
+            for(let i = 0.1; i < 1; i += 0.05) {
+                ctx.beginPath();
+                ctx.arc(width / 2, height / 2, Math.max(width, height) * i, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            for(let i = 0; i < 12; i++) {
+                let angle = (Math.PI * 2 / 12) * i;
+                ctx.beginPath();
+                ctx.moveTo(width / 2, height / 2);
+                ctx.lineTo(width / 2 + Math.cos(angle) * Math.max(width, height), height / 2 + Math.sin(angle) * Math.max(width, height));
+                ctx.stroke();
+            }
+
+            nodes.forEach(node => {
+                ctx.beginPath();
+                ctx.moveTo(width / 2, height / 2);
+                ctx.lineTo(node.x, node.y);
+                ctx.strokeStyle = "rgba(255,255,255,0.4)";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+                ctx.fillStyle = "#e50914";
+                ctx.fill();
+
+                if (node.el) {
+                    node.el.style.left = node.x + 'px';
+                    node.el.style.top = node.y + 'px';
+                }
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
+
+```
+Eti shob picture gulo ke spider net-er majhe theke jhule thakar
+
  
    
 
